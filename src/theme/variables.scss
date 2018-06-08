@@ -22,7 +22,9 @@ $app-direction: ltr;
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
-
+$font-family-md-base: "Lato";
+$font-family-ios-base: "Lato";
+$font-family-wp-base: "Lato";
 
 
 // Named Color Variables
@@ -34,7 +36,7 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
+  primary:    #4d79a6,
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
@@ -86,3 +88,4 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px|Source+Sans+Pro:400,400i,700,700i,900,900i&subset=latin-ext');
