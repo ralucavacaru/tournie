@@ -1,0 +1,36 @@
+page-notifications-log {
+	.notification-head {
+		font-family: 'Slabo 27px', serif;
+		font-size: 20px !important;
+		font-weight: bold;
+		width: 100%;
+		background-color: map-get($colors, primary);
+		color: white;
+		padding: 5px 10px;
+		display: flex;
+	}
+	.notification-content p {
+		font-size: 16px !important;
+		padding: 5px;
+	}
+	.notification-title {
+		flex: 3;
+		white-space: nowrap; 
+    	overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.timestamp {
+		flex: 1;
+		font-size: 16px;
+		line-height: 30px;
+		text-align: right;
+	}
+	.seen {
+		.notification-head {
+			background-color: #757171;
+		}
+		.notification-content p {
+			color: #757171;
+		}
+	}
+}

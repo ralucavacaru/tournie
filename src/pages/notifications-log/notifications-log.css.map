@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACC,0CAAoB,CACnB,WAAW,CAAE,uBAAuB,CACpC,SAAS,CAAE,eAAe,CAE3B,8CAAwB,CACvB,SAAS,CAAE,eAAe",
+"sources": ["notifications-log.scss"],
+"names": [],
+"file": "notifications-log.css"
+}

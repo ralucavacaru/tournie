@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Notifications Log</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-list>
+	    <div ion-item *ngFor="let notification of notifications" [ngClass]="{'seen': notification.seen}" text-wrap>
+	    	<div class="notification-head">
+	    		<div class="notification-title">
+	      			{{notification.title}}
+	      		</div>
+	      		<div class="timestamp">
+	      			<i class="far fa-clock"></i>
+	      			{{notification.timestamp}}
+	      		</div>
+	      	</div>
+	      	<div class="notification-content">
+	      		<p>{{notification.text}}</p>
+	      	</div>
+	    </div>
+  	</ion-list>
+</ion-content>
