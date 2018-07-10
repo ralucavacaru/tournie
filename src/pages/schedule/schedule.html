@@ -9,19 +9,51 @@
 
 <ion-content padding>
   
- 
+    <h1>Day 1</h1>
     <ion-list class="schedule-wrapper">
-      <button detail-none (click)="expandItem(item)" ion-item *ngFor="let item of items" text-wrap>
+      <button detail-none (click)="expandItem(item)" ion-item 
+              *ngFor="let item of items" 
+              [ngClass]="{'registration': item.type===1,
+                          'round': item.type===2,
+                          'social': item.type===3,
+                          'workshop': item.type===4,
+                          'food': item.type===5,
+                          'misc': item.type===6}"
+              text-wrap>
         <div class="item-head">
           <h2>Lorem Ipsum Dolor</h2>
           <p><i class="fas fa-clock"></i> 12:00 - 13:00 &emsp; <i class="fas fa-map-marker-alt"></i> AB01 </p>
         </div>
         <event-detail [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et rhoncus libero, a porta diam. <br>
-            Integer tellus orci, hendrerit at ante laoreet, pulvinar euismod orci. <b>Vivamus sit amet arcu blandit</b>, pellentesque dolor in, venenatis felis. Mauris et placerat nisl, congue iaculis nibh. Etiam eget urna in purus pellentesque tempus. In rhoncus sapien lectus, et pretium nibh dictum eget. In hac habitasse platea dictumst. Quisque massa felis, interdum varius ultrices viverra, varius id mi. Nulla eu lacus metus. Curabitur rutrum justo et ex auctor consectetur. Vestibulum vulputate malesuada consectetur. Aenean sed sodales massa, quis suscipit diam.
+            Integer tellus orci, hendrerit at ante laoreet, pulvinar euismod orci. <b>Vivamus sit amet arcu blandit</b>, pellentesque dolor in, venenatis felis. Mauris et placerat nisl, congue iaculis nibh. Etiam eget urna in purus pellentesque tempus. In rhoncus sapien lectus, et pretium nibh dictum eget. In hac habitasse platea dictumst. Quisque massa felis, interdum varius ultrices viverra, varius id mi. Nulla eu lacus metus. 
         </event-detail>
         <!-- <button ion-button clear item-end>View</button> -->
       </button>
     </ion-list>
+
+    <h1>Day 2</h1>
+    <ion-list class="schedule-wrapper">
+      <button detail-none (click)="expandItem(item)" ion-item 
+              *ngFor="let item of items" 
+              [ngClass]="{'registration': item.type===1,
+                          'round': item.type===2,
+                          'social': item.type===3,
+                          'workshop': item.type===4,
+                          'food': item.type===5,
+                          'misc': item.type===6}"
+              text-wrap>
+        <div class="item-head">
+          <h2>Lorem Ipsum Dolor</h2>
+          <p><i class="fas fa-clock"></i> 12:00 - 13:00 &emsp; <i class="fas fa-map-marker-alt"></i> AB01 </p>
+        </div>
+        <event-detail [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et rhoncus libero, a porta diam. <br>
+            Integer tellus orci, hendrerit at ante laoreet, pulvinar euismod orci. <b>Vivamus sit amet arcu blandit</b>, pellentesque dolor in, venenatis felis. Mauris et placerat nisl, congue iaculis nibh. Etiam eget urna in purus pellentesque tempus. In rhoncus sapien lectus, et pretium nibh dictum eget. In hac habitasse platea dictumst. Quisque massa felis, interdum varius ultrices viverra, varius id mi. Nulla eu lacus metus. 
+        </event-detail>
+        <!-- <button ion-button clear item-end>View</button> -->
+      </button>
+    </ion-list>
+
  
 </ion-content>

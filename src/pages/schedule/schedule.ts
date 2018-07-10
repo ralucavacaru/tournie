@@ -22,15 +22,12 @@ export class SchedulePage {
     constructor(public navCtrl: NavController) {
  
         this.items = [
-            {expanded: false},
-            {expanded: false},
-            {expanded: false},
-            {expanded: false},
-            {expanded: false},
-            {expanded: false},
-            {expanded: false},
-            {expanded: false},
-            {expanded: false}
+            {expanded: false, type: 1},
+            {expanded: false, type: 2},
+            {expanded: false, type: 5},
+            {expanded: false, type: 2},
+            {expanded: false, type: 4},
+            {expanded: false, type: 3},
         ];
  
     }

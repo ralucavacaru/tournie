@@ -1,29 +1,71 @@
 page-schedule {
+	h1 {
+		font-family: 'Roboto Condensed', sans-serif;
+		font-weight: 700;
+		padding: 10px 10px 0;
+		margin-top: 10px;
+	}
 	.schedule-wrapper {
 		h2 {
-			font-family: 'Slabo 27px', serif;
-			font-size: 20px;
-			font-weight: bold;
+			font-family: 'Roboto Condensed', sans-serif;
+			font-size: 18px;
+			font-weight: 700;
 			line-height: 30px;
-			color: map-get($colors, primary);
+			color: black;
 		}
 		.item-head {
-			// background-color: map-get($colors, primary);
-			// color: white;
-			// padding: 5px 10px;
-
-			p {
-				// color: white;
-			}
+			font-family: 'Roboto Condensed', sans-serif;
+			font-weight: 400;
 		}
 		.item-inner {
 			border: none !important;
 		}
-		.input-wrapper {
-			border-bottom: 1px solid map-get($colors, primary);
-		}
 		.item {
-			box-sizing: border-box;
+			border-left: 4px solid;
+			margin: 10px 15px;
+			padding: 5px 15px;
 		}
+		ion-label {
+			margin-top: 0 !important;
+			margin-bottom: 0 !important;
+		}
+	}
+
+
+	.registration {
+		border-color: map-get($colors, registration) !important;
+		// h2 {
+		// 	color: map-get($colors, registration);
+		// }
+	}
+	.round {
+		border-color: map-get($colors, round) !important;
+		// h2 {
+		// 	color: map-get($colors, round);
+		// }
+	}
+	.social {
+		border-color: map-get($colors, social) !important;
+		// h2 {
+		// 	color: map-get($colors, social);
+		// }
+	}
+	.workshop {
+		border-color: map-get($colors, workshop) !important;
+		// h2 {
+		// 	color: map-get($colors, workshop);
+		// }
+	}
+	.food {
+		border-color: map-get($colors, food) !important;
+		// h2 {
+		// 	color: map-get($colors, food);
+		// }
+	}
+	.misc {
+		// border-color: map-get($colors, misc) !important;
+		// h2 {
+		// 	color: map-get($colors, misc);
+		// }
 	}
 }
