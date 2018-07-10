@@ -1,3 +1,14 @@
 event-detail {
+	font-size: 16px;
+	// margin-top: 15px;
 
+	.expand-wrapper {
+        transition: 0.2s linear;
+        padding-top: 5px;
+        // box-sizing: border-box;
+    }  
+ 
+    .collapsed {
+        height: 0 !important;
+    }
 }

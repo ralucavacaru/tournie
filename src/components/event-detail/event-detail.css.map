@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAAA,YAAa,CACZ,SAAS,CAAE,IAAI,CAGf,4BAAgB,CACT,UAAU,CAAE,WAAW,CACvB,WAAW,CAAE,GAAG,CAIpB,uBAAW,CACP,MAAM,CAAE,YAAY",
+"sources": ["event-detail.scss"],
 "names": [],
 "file": "event-detail.css"
 }

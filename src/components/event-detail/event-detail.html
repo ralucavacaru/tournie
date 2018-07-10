@@ -1,4 +1,3 @@
-<!-- Generated template for the EventDetailComponent component -->
-<div>
-  {{text}}
+<div #expandWrapper class='expand-wrapper' [class.collapsed]="!expanded">
+    <ng-content></ng-content>
 </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { EventDetailComponent } from '../../components/event-detail/event-detail';
 
 /**
  * Generated class for the SchedulePage page.
@@ -15,11 +16,43 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SchedulePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  items: any = [];
+    itemExpandHeight: number = 100;
+ 
+    constructor(public navCtrl: NavController) {
+ 
+        this.items = [
+            {expanded: false},
+            {expanded: false},
+            {expanded: false},
+            {expanded: false},
+            {expanded: false},
+            {expanded: false},
+            {expanded: false},
+            {expanded: false},
+            {expanded: false}
+        ];
+ 
+    }
+ 
+    expandItem(item){
+ 
+        this.items.map((listItem) => {
+ 
+            if(item == listItem){
+                listItem.expanded = !listItem.expanded;
+            } else {
+                listItem.expanded = false;
+            }
+ 
+            return listItem;
+ 
+        });
+ 
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SchedulePage');
-  }
+    ionViewDidLoad() {
+    	console.log('ionViewDidLoad SchedulePage');
+  	}
 
 }

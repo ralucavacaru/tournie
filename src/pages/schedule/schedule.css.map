@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEE,kCAAG,CACF,WAAW,CAAE,mBAAmB,CAChC,SAAS,CAAE,IAAI,CACf,WAAW,CAAE,IAAI",
+"sources": ["schedule.scss"],
+"names": [],
+"file": "schedule.css"
+}

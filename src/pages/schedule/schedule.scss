@@ -1,3 +1,29 @@
 page-schedule {
+	.schedule-wrapper {
+		h2 {
+			font-family: 'Slabo 27px', serif;
+			font-size: 20px;
+			font-weight: bold;
+			line-height: 30px;
+			color: map-get($colors, primary);
+		}
+		.item-head {
+			// background-color: map-get($colors, primary);
+			// color: white;
+			// padding: 5px 10px;
 
+			p {
+				// color: white;
+			}
+		}
+		.item-inner {
+			border: none !important;
+		}
+		.input-wrapper {
+			border-bottom: 1px solid map-get($colors, primary);
+		}
+		.item {
+			box-sizing: border-box;
+		}
+	}
 }

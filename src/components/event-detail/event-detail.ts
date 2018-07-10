@@ -1,22 +1,21 @@
-import { Component } from '@angular/core';
-
-/**
- * Generated class for the EventDetailComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
+import { Component, Input, ViewChild, ElementRef, Renderer } from '@angular/core';
+ 
 @Component({
   selector: 'event-detail',
   templateUrl: 'event-detail.html'
 })
 export class EventDetailComponent {
-
-  text: string;
-
-  constructor() {
-    console.log('Hello EventDetailComponent Component');
-    this.text = 'Hello World';
-  }
-
+ 
+    @ViewChild('expandWrapper', {read: ElementRef}) expandWrapper;
+    @Input('expanded') expanded;
+    @Input('expandHeight') expandHeight;
+ 
+    constructor(public renderer: Renderer) {
+ 
+    }
+ 
+    ngAfterViewInit(){
+        this.renderer.setElementStyle(this.expandWrapper.nativeElement, 'height', 'auto');   
+    }
+ 
 }
