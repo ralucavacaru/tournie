@@ -1,3 +1,30 @@
 page-profile {
+	.profile-wrapper {
+		padding: 10px;
+		display: flex;
+		flex-direction: column;
+	}
+	h1 {
+		font-family: 'Roboto Condensed', sans-serif;
+		font-weight: 700;
+	}
+	.profile-value {
+		font-weight: bold;
+	}
+	.profile-item {
+		font-size: 18px;
+		line-height: 1.5em;
+	}
 
+	.log-out {
+		align-self: center;
+		width: 100px;
+		background-color: map-get($colors, danger);
+		color: white;
+		font-family: 'Roboto Condensed', sans-serif;
+		font-weight: 700;
+		font-size: 18px;
+		padding: 10px 0;
+		margin-top: 40px;
+	}
 }

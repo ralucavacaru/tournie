@@ -1,2 +1,2 @@
-page-schedule .schedule-wrapper h2{font-family:'Slabo 27px', serif;font-size:20px;font-weight:bold}
+page-schedule h1{font-family:'Roboto Condensed', sans-serif;font-weight:400;padding:10px 10px 0;margin-top:10px}page-schedule .schedule-wrapper h2{font-family:'Roboto Condensed', sans-serif;font-size:18px;font-weight:700;line-height:30px;color:black}page-schedule .schedule-wrapper .item-head{font-family:'Roboto Condensed', sans-serif;font-weight:400}page-schedule .schedule-wrapper .item-inner{border:none !important}page-schedule .schedule-wrapper .item{border-left:4px solid;margin:10px 15px;padding:5px 15px}page-schedule .schedule-wrapper ion-label{margin-top:0 !important;margin-bottom:0 !important}
 /*# sourceMappingURL=schedule.css.map */

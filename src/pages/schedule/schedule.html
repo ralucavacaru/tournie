@@ -9,7 +9,7 @@
 
 <ion-content padding>
   
-    <h1>Day 1</h1>
+    <h1><b>Day 1</b> - 1 August</h1>
     <ion-list class="schedule-wrapper">
       <button detail-none (click)="expandItem(item)" ion-item 
               *ngFor="let item of items" 
@@ -17,8 +17,10 @@
                           'round': item.type===2,
                           'social': item.type===3,
                           'workshop': item.type===4,
-                          'food': item.type===5,
-                          'misc': item.type===6}"
+                          'meal': item.type===5,
+                          'transport': item.type===6,
+                          'briefing': item.type===7,
+                          'misc': item.type===8}"
               text-wrap>
         <div class="item-head">
           <h2>Lorem Ipsum Dolor</h2>
@@ -32,7 +34,7 @@
       </button>
     </ion-list>
 
-    <h1>Day 2</h1>
+    <h1><b>Day 2</b> - 2 August</h1>
     <ion-list class="schedule-wrapper">
       <button detail-none (click)="expandItem(item)" ion-item 
               *ngFor="let item of items" 
@@ -40,8 +42,10 @@
                           'round': item.type===2,
                           'social': item.type===3,
                           'workshop': item.type===4,
-                          'food': item.type===5,
-                          'misc': item.type===6}"
+                          'meal': item.type===5,
+                          'transport': item.type===6,
+                          'briefing': item.type===7,
+                          'misc': item.type===8}"
               text-wrap>
         <div class="item-head">
           <h2>Lorem Ipsum Dolor</h2>

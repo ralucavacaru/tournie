@@ -14,8 +14,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
+  user: any = {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  	// this.user = {
+  	// 	id: 2,
+  	// 	name: "John Doe",
+  	// 	role: 2, // Judge
+  	// 	institution: "UCL",
+  	// };
+  	this.user = {
+  		id: 1,
+  		name: "Jane Doe",
+  		role: 1, // Speaker
+  		team: "UCL A",
+  		language: "ESL",
+  	}
   }
 
   ionViewDidLoad() {

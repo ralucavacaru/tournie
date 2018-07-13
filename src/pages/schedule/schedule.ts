@@ -16,7 +16,7 @@ import { EventDetailComponent } from '../../components/event-detail/event-detail
 })
 export class SchedulePage {
 
-  items: any = [];
+  	items: any = [];
     itemExpandHeight: number = 100;
  
     constructor(public navCtrl: NavController) {
@@ -24,10 +24,12 @@ export class SchedulePage {
         this.items = [
             {expanded: false, type: 1},
             {expanded: false, type: 2},
-            {expanded: false, type: 5},
-            {expanded: false, type: 2},
-            {expanded: false, type: 4},
             {expanded: false, type: 3},
+            {expanded: false, type: 4},
+            {expanded: false, type: 5},
+            {expanded: false, type: 6},
+            {expanded: false, type: 7},
+            {expanded: false, type: 8},
         ];
  
     }
