@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TournamentsPage } from '../tournaments/tournaments';
 
 /**
  * Generated class for the ProfilePage page.
@@ -15,6 +16,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
   user: any = {};
+
+  tournamentsPage = TournamentsPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   	// this.user = {
