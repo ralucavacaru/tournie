@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { NotificationsLogPage } from '../pages/notifications-log/notifications-log';
 import { SchedulePage } from '../pages/schedule/schedule';
 import { ProfilePage } from '../pages/profile/profile';
+import { TournamentsPage } from '../pages/tournaments/tournaments';
 
 @Component({
   templateUrl: 'app.html'
@@ -14,7 +15,7 @@ import { ProfilePage } from '../pages/profile/profile';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = TournamentsPage;
 
   pages: Array<{title: string, component: any}>;
 
