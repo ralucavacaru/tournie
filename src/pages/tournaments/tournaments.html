@@ -7,7 +7,7 @@
 
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar hideBackButton="true">
     <ion-title>Tournaments</ion-title>
   </ion-navbar>
 
@@ -15,6 +15,6 @@
 
 <ion-content padding>
 
-<button class="log-in" [navPush]="homePage">Log In</button>
+<button class="log-in" (click)="logIn()">Log In</button>
 
 </ion-content>

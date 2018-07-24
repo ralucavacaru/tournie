@@ -102,3 +102,8 @@
 .briefing {
 	border-color: map-get($colors, briefing) !important;
 }
+
+// hides vertical scroll on menu sidebar
+.no-scroll .scroll-content{
+  overflow: hidden;
+}

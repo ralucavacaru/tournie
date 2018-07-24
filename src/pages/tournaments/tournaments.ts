@@ -25,4 +25,8 @@ export class TournamentsPage {
     console.log('ionViewDidLoad TournamentsPage');
   }
 
+  logIn() {
+    this.navCtrl.setRoot(this.homePage, {}, {animate: true, direction: "forward"});
+  }
+
 }

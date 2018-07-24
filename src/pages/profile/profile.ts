@@ -39,4 +39,8 @@ export class ProfilePage {
     console.log('ionViewDidLoad ProfilePage');
   }
 
+  logOut() {
+    this.navCtrl.setRoot(this.tournamentsPage, {}, {animate: true, direction: "back"});
+  }
+
 }
