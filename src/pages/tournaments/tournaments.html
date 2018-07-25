@@ -11,7 +11,7 @@
 	<ion-list>
       <ion-item 
       	*ngFor="let tournament of tournaments" 
-      	(click)="onClickTournament()"
+      	(click)="onClickTournament(tournament)"
       	text-wrap>
       	<div class="name">
       		{{tournament.name}}

@@ -1,3 +1,48 @@
 page-tournament-detail {
+	p {
+		font-family: 'Lato', sans-serif;
+		margin: 10px 0;
+	}
+	h2 {
+		font-family: 'Roboto Condensed', sans-serif;
+		font-weight: 700;
+		font-size: 22px;
+		color: map-get($colors, primary);
+	}
+	.details {
+		font-family: 'Roboto Condensed', sans-serif;
+		font-size: 14px;
+		line-height: 1.5em;
 
+		.bold {
+			font-weight: 700;
+		}
+	}
+
+	.login-wrapper {
+		margin-top: 30px;
+		display: flex;
+		flex-direction: column;
+
+		ion-input {
+			border: solid 1px map-get($colors, primaryTransparent);
+			align-self: center;
+		}
+
+		button {
+			align-self: center;
+			width: 100px;
+			background-color: map-get($colors, primary);
+			color: white;
+			font-family: 'Roboto Condensed', sans-serif;
+			font-weight: 700;
+			font-size: 18px;
+			padding: 10px 0;
+			margin-top: 20px;
+		}
+	}
+
+	.back-button .button-inner {
+		color: white;
+	}
 }

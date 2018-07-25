@@ -10,7 +10,6 @@ import { TournamentDetailPage } from '../tournament-detail/tournament-detail';
 })
 export class TournamentsPage {
 
-  homePage = HomePage;
   tournaments: any = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -26,12 +25,10 @@ export class TournamentsPage {
     console.log('ionViewDidLoad TournamentsPage');
   }
 
-  logIn() {
-    this.navCtrl.setRoot(this.homePage, {}, {animate: true, direction: "forward"});
-  }
-
-  onClickTournament() {
-    this.navCtrl.push(TournamentDetailPage);
+  onClickTournament(tournament) {
+    this.navCtrl.push(TournamentDetailPage, {
+      tournament: tournament,
+    });
   }
 
 }

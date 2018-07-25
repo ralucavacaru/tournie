@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
-/**
- * Generated class for the TournamentDetailPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,11 +10,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TournamentDetailPage {
 
+  homePage = HomePage;
+  tournament: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  	this.tournament = this.navParams.get('tournament');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TournamentDetailPage');
+  }
+
+  logIn() {
+    this.navCtrl.setRoot(this.homePage, {}, {animate: true, direction: "forward"});
   }
 
 }
