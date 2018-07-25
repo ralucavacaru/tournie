@@ -102,5 +102,30 @@ $item-md-paragraph-text-color: black;
 
 @import "roboto";
 @import "noto-sans";
-@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Roboto+Condensed:400,700&subset=latin-ext');
+// @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Roboto+Condensed:400,700&subset=latin-ext');
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/roboto_condensed/RobotoCondensed-Regular.ttf');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: bold;
+  font-weight: 700;
+  src: url('../assets/fonts/roboto_condensed/RobotoCondensed-Bold.ttf');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/lato/Lato-Regular.ttf');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: bold;
+  font-weight: 700;
+  src: url('../assets/fonts/lato/Lato-Bold.ttf');
+}
 
