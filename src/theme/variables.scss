@@ -22,6 +22,7 @@ $app-direction: ltr;
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
+$font-family-base: "Lato";
 $font-family-md-base: "Lato";
 $font-family-ios-base: "Lato";
 $font-family-wp-base: "Lato";
@@ -102,30 +103,42 @@ $item-md-paragraph-text-color: black;
 
 @import "roboto";
 @import "noto-sans";
-// @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Roboto+Condensed:400,700&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Roboto+Condensed:400,700&subset=latin-ext');
 
-@font-face {
-  font-family: 'Roboto Condensed';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../assets/fonts/roboto_condensed/RobotoCondensed-Regular.ttf');
-}
-@font-face {
-  font-family: 'Roboto Condensed';
-  font-style: bold;
-  font-weight: 700;
-  src: url('../assets/fonts/roboto_condensed/RobotoCondensed-Bold.ttf');
-}
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../assets/fonts/lato/Lato-Regular.ttf');
-}
-@font-face {
-  font-family: 'Lato';
-  font-style: bold;
-  font-weight: 700;
-  src: url('../assets/fonts/lato/Lato-Bold.ttf');
-}
+// @font-face {
+//   font-family: 'Roboto Condensed';
+//   font-style: normal;
+//   font-weight: 400;
+//   src: 
+//     local('RobotoCondensed-Regular'),
+//     url('../assets/fonts/roboto_condensed/RobotoCondensed-Regular.woff2') format('woff2'),
+//     url('../assets/fonts/roboto_condensed/RobotoCondensed-Regular.ttf') format('truetype');
+// }
+// @font-face {
+//   font-family: 'Roboto Condensed';
+//   font-style: bold;
+//   font-weight: 700;
+//   src: 
+//     local('RobotoCondensed-Bold'),
+//     url('../assets/fonts/roboto_condensed/RobotoCondensed-Bold.woff2') format('woff2'),
+//     url('../assets/fonts/roboto_condensed/RobotoCondensed-Bold.ttf') format('truetype');
+// }
+// @font-face {
+//   font-family: 'Lato';
+//   font-style: normal;
+//   font-weight: 400;
+//   src: 
+//     local('Lato-Regular'),
+//     url('../assets/fonts/lato/Lato-Regular.woff2') format('woff2'),
+//     url('../assets/fonts/lato/Lato-Regular.ttf') format('truetype');
+// }
+// @font-face {
+//   font-family: 'Lato';
+//   font-style: bold;
+//   font-weight: 700;
+//   src: 
+//     local('Lato-Bold'),
+//     url('../assets/fonts/lato/Lato-Bold.woff2') format('woff2'),
+//     url('../assets/fonts/lato/Lato-Bold.ttf') format('truetype');
+// }
 
