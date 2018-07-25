@@ -28,8 +28,8 @@ export class TournamentsPage {
 
   ionViewWillEnter() {
     console.log("ionViewWillEnter TournamentsPage");
-    this.tournaments = this.loadTournaments();
-    console.log(this.tournaments);
+    // this.tournaments = this.loadTournaments();
+    console.log(this.loadTournaments());        
   }
 
   ionViewDidLoad() {
@@ -43,8 +43,8 @@ export class TournamentsPage {
   }
 
   async loadTournaments() {
-    return (await this.http.get(this.loadTournamentsURL))
-                           .map(res => res.json().name);
+    return await this.http.get(this.loadTournamentsURL);
+    // .map(res => res.json().name)
   }
 
 }
