@@ -9,6 +9,7 @@ import { SchedulePage } from '../pages/schedule/schedule';
 import { ProfilePage } from '../pages/profile/profile';
 import { TournamentsPage} from '../pages/tournaments/tournaments'
 import { EventDetailComponent } from '../components/event-detail/event-detail';
+import { TournamentDetailPage } from '../pages/tournament-detail/tournament-detail';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -22,6 +23,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ProfilePage,
     TournamentsPage,
     EventDetailComponent,
+    TournamentDetailPage,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     NotificationsLogPage,
     SchedulePage,
     ProfilePage,
-    TournamentsPage
+    TournamentsPage,
+    TournamentDetailPage,
   ],
   providers: [
     StatusBar,
