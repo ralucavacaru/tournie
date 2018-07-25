@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACC,+BAAS,CACR,WAAW,CAAE,8BAA8B,CAC3C,SAAS,CAAE,IAAI,CACf,WAAW,CAAE,KAAK,CAElB,qCAAM,CACL,WAAW,CAAE,GAAG",
+"sources": ["tournament-detail.scss"],
+"names": [],
+"file": "tournament-detail.css"
+}

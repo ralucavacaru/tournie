@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{tournament.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<h2>About</h2>
+
+	<div class="details">
+  		<span class="bold">Convenors:</span> Jane Doe, John Doel
+  		<br>
+  		<span class="bold">CA Team:</span> Lenny Doeston, Andrea Doesmith, Jennifer Doer
+  		<br>
+  		<span class="bold">Tab Team: </span> Gina Doeston
+  		<br>
+  		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu lectus commodo, vulputate turpis vel, rhoncus neque. Sed eu congue ligula. Donec vitae sapien elit. Sed odio turpis, congue quis sodales non, hendrerit a dui. Nulla dignissim lacus tortor. Pellentesque mi purus, molestie eget nulla vitae, molestie semper urna.</p>
+  	</div>
+
+  	<div class="login-wrapper">
+  		<h2>Log in</h2>
+  		<p>Enter your unique TabbyCat feedback URL below to log in.</p>
+  		<ion-input type="text" name="title" placeholder="URL"></ion-input>
+  		<button (click)="logIn()">Log In</button>
+  	</div>
+
+</ion-content>

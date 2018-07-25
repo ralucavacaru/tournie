@@ -8,6 +8,17 @@
 </ion-header>
 
 <ion-content padding>
+
+  <div class="details">
+      <span class="bold">Convenors:</span> Jane Doe, John Doel
+      <br>
+      <span class="bold">CA Team:</span> Lenny Doeston, Andrea Doesmith, Jennifer Doer
+      <br>
+      <span class="bold">Tab Team: </span> Gina Doeston
+      <br>
+  </div>
+
+  <h1>Events</h1>
   
 	<ion-list class="schedule-wrapper">
       <button detail-none (click)="expandItem(item)" ion-item 
@@ -27,7 +38,7 @@
         </div>
         <event-detail [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et rhoncus libero, a porta diam. <br>
-            Integer tellus orci, hendrerit at ante laoreet, pulvinar euismod orci. <b>Vivamus sit amet arcu blandit</b>, pellentesque dolor in, venenatis felis. Mauris et placerat nisl, congue iaculis nibh. Etiam eget urna in purus pellentesque tempus. In rhoncus sapien lectus, et pretium nibh dictum eget. In hac habitasse platea dictumst. Quisque massa felis, interdum varius ultrices viverra, varius id mi. Nulla eu lacus metus. 
+            Integer tellus orci, hendrerit at ante laoreet, pulvinar euismod orci. <b>Vivamus sit amet arcu blandit</b>, pellentesque dolor in, venenatis felis. Mauris et placerat nisl, congue iaculis nibh.
         </event-detail>
         <!-- <button ion-button clear item-end>View</button> -->
       </button>

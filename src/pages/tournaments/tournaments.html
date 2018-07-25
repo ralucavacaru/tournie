@@ -8,6 +8,22 @@
 
 <ion-content padding>
 
-<button class="log-in" (click)="logIn()">Log In</button>
+	<ion-list>
+      <ion-item 
+      	*ngFor="let tournament of tournaments" 
+      	(click)="onClickTournament(tournament)"
+      	text-wrap>
+      	<div class="name">
+      		{{tournament.name}}
+      	</div>
+      	<div class="details">
+      		<span class="bold">Convenors:</span> Jane Doe, John Doel
+      		<br>
+      		<span class="bold">CA Team:</span> Lenny Doeston, Andrea Doesmith, Jennifer Doer
+      		<br>
+      		<span class="bold">Tab Team: </span> Gina Doeston
+      	</div>
+      </ion-item>
+    </ion-list>
 
 </ion-content>

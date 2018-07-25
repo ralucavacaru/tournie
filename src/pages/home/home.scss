@@ -1,3 +1,16 @@
 page-home {
+	.details {
+		font-family: 'Roboto Condensed', sans-serif;
+		font-size: 16px;
+		line-height: 1.5em;
 
+		.bold {
+			font-weight: 700;
+		}
+	}
+	h1 {
+		font-family: 'Roboto Condensed', sans-serif;
+		font-weight: 700;
+		font-size: 22px;
+	}
 }
