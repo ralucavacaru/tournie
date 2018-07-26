@@ -11,24 +11,12 @@ import { RestProvider } from '../../providers/rest/rest';
 })
 export class SchedulePage {
 
-  	items: any = [];
     itemExpandHeight: number = 100;
     schedule: any = [];
     expandedSchedule: any = [];
     days: any = [];
  
     constructor(public navCtrl: NavController, public restProvider: RestProvider, private storage: Storage) {
- 
-        this.items = [
-            {expanded: false, type: 1},
-            {expanded: false, type: 2},
-            {expanded: false, type: 3},
-            {expanded: false, type: 4},
-            {expanded: false, type: 5},
-            {expanded: false, type: 6},
-            {expanded: false, type: 7},
-            {expanded: false, type: 8},
-        ];
 
         // this.storage.get('activeTournament').then((val) => {
         //     this.restProvider.getSchedule(val.id).then(
@@ -63,7 +51,7 @@ export class SchedulePage {
                 events: aux,
             });
         }
-        console.log(this.expandedSchedule);
+        // console.log(this.expandedSchedule);
        
  
     }

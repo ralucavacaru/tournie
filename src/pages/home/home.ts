@@ -13,6 +13,8 @@ export class HomePage {
     items: any = [];
     itemExpandHeight: number = 100;
     tournament: any;
+    events: any = [];
+    expandedEvents: any = [];
  
     constructor(public navCtrl: NavController, private storage: Storage, public restProvider: RestProvider) {
         this.storage.get('activeTournament').then((val) => {
@@ -25,10 +27,20 @@ export class HomePage {
             {expanded: false, type: 5},
         ];
         this.items[0].expanded = true;
+
+        this.events = this.restProvider.getHomepageEvents(1,1);
+        console.log(this.events);
+
+        for (let i=0; i<this.events.length; i++) {
+            this.expandedEvents.push({
+                event: this.events[i],
+                expanded: false,
+            })
+        }
     }
  
     expandItem(item){
-        this.items.map((listItem) => {
+        this.expandedEvents.map((listItem) => {
  
             if(item == listItem){
                 listItem.expanded = !listItem.expanded;

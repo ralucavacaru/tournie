@@ -18,23 +18,26 @@
       <br>
   </div>
 
-  <h1>Events</h1>
+  <h1>Coming up...</h1>
   
 	<ion-list class="schedule-wrapper">
       <button detail-none (click)="expandItem(item)" ion-item 
-              *ngFor="let item of items" 
-              [ngClass]="{'registration': item.type===1,
-                          'round': item.type===2,
-                          'social': item.type===3,
-                          'workshop': item.type===4,
-                          'meal': item.type===5,
-                          'transport': item.type===6,
-                          'briefing': item.type===7,
-                          'misc': item.type===8}"
+              *ngFor="let item of expandedEvents" 
+              [ngClass]="{'registration': item.event.event.type==1,
+                          'round': item.event.event.type==2,
+                          'social': item.event.event.type==3,
+                          'workshop': item.event.event.type==4,
+                          'meal': item.event.event.type==5,
+                          'transport': item.event.event.type==6,
+                          'briefing': item.event.event.type==7,
+                          'misc': item.event.event.type==8}"
               text-wrap>
         <div class="item-head">
-          <h2><span class="event-label">Now: </span>Lorem Ipsum Dolor</h2>
-          <p><i class="fas fa-clock"></i> 12:00 - 13:00 &emsp; <i class="fas fa-map-marker-alt"></i> AB01 </p>
+          <h2>{{item.event.event.name}}</h2>
+          <p class="event-subtitle">
+            <i class="fas fa-clock"></i> {{item.event.event.date_start | date:'shortTime'}} - {{item.event.event.date_end | date:'shortTime'}} &emsp; 
+            <i class="fas fa-map-marker-alt"></i> {{item.event?.room.name}} {{item.event.venue.name}}
+          </p>
         </div>
         <event-detail [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et rhoncus libero, a porta diam. <br>

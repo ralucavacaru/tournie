@@ -76,6 +76,11 @@
 	.event-label {
 		font-weight: 400;
 	}
+	.event-subtitle {
+		white-space: nowrap; 
+    	overflow: hidden;
+    	text-overflow: ellipsis;
+	}
 }
 
 .registration {
