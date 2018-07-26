@@ -17,11 +17,10 @@
       		{{tournament.name}}
       	</div>
       	<div class="details">
-      		<span class="bold">Convenors:</span> Jane Doe, John Doel
-      		<br>
-      		<span class="bold">CA Team:</span> Lenny Doeston, Andrea Doesmith, Jennifer Doer
-      		<br>
-      		<span class="bold">Tab Team: </span> Gina Doeston
+          <span class="bold">Dates: </span>{{tournament.date_start | date}} - {{tournament.date_end | date}}
+          <br>
+          <span class="bold">Team cap: </span>{{tournament.cap}}
+          <br>
       	</div>
       </ion-item>
     </ion-list>
