@@ -8,56 +8,32 @@
 </ion-header>
 
 <ion-content padding>
-  
-    <h1><b>Day 1</b> - 1 August</h1>
-    <ion-list class="schedule-wrapper">
+
+    <ion-list class="schedule-wrapper" *ngFor="let day of expandedSchedule">
+      <h1><b>{{day.date | date}}</b></h1>
       <button detail-none (click)="expandItem(item)" ion-item 
-              *ngFor="let item of items" 
-              [ngClass]="{'registration': item.type===1,
-                          'round': item.type===2,
-                          'social': item.type===3,
-                          'workshop': item.type===4,
-                          'meal': item.type===5,
-                          'transport': item.type===6,
-                          'briefing': item.type===7,
-                          'misc': item.type===8}"
+              *ngFor="let item of day.events" 
+              [ngClass]="{'registration': item.detail.event.type==1,
+                          'round': item.detail.event.type==2,
+                          'social': item.detail.event.type==3,
+                          'workshop': item.detail.event.type==4,
+                          'meal': item.detail.event.type==5,
+                          'transport': item.detail.event.type==6,
+                          'briefing': item.detail.event.type==7,
+                          'misc': item.detail.event.type==8}"
               text-wrap>
         <div class="item-head">
-          <h2>Lorem Ipsum Dolor</h2>
-          <p><i class="fas fa-clock"></i> 12:00 - 13:00 &emsp; <i class="fas fa-map-marker-alt"></i> AB01 </p>
+          <h2>{{item.detail.event.name}}</h2>
+          <p class="event-subtitle">
+            <i class="fas fa-clock"></i> {{item.detail.event.date_start | date:'shortTime'}} - {{item.detail.event.date_end | date:'shortTime'}} &emsp; 
+            <i class="fas fa-map-marker-alt"></i> {{item.detail?.room.name}} {{item.detail.venue.name}}
+          </p>
         </div>
         <event-detail [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et rhoncus libero, a porta diam. <br>
             Integer tellus orci, hendrerit at ante laoreet, pulvinar euismod orci. <b>Vivamus sit amet arcu blandit</b>, pellentesque dolor in, venenatis felis. Mauris et placerat nisl, congue iaculis nibh. Etiam eget urna in purus pellentesque tempus. In rhoncus sapien lectus, et pretium nibh dictum eget. In hac habitasse platea dictumst. Quisque massa felis, interdum varius ultrices viverra, varius id mi. Nulla eu lacus metus. 
         </event-detail>
-        <!-- <button ion-button clear item-end>View</button> -->
       </button>
     </ion-list>
 
-    <h1><b>Day 2</b> - 2 August</h1>
-    <ion-list class="schedule-wrapper">
-      <button detail-none (click)="expandItem(item)" ion-item 
-              *ngFor="let item of items" 
-              [ngClass]="{'registration': item.type===1,
-                          'round': item.type===2,
-                          'social': item.type===3,
-                          'workshop': item.type===4,
-                          'meal': item.type===5,
-                          'transport': item.type===6,
-                          'briefing': item.type===7,
-                          'misc': item.type===8}"
-              text-wrap>
-        <div class="item-head">
-          <h2>Lorem Ipsum Dolor</h2>
-          <p><i class="fas fa-clock"></i> 12:00 - 13:00 &emsp; <i class="fas fa-map-marker-alt"></i> AB01 </p>
-        </div>
-        <event-detail [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et rhoncus libero, a porta diam. <br>
-            Integer tellus orci, hendrerit at ante laoreet, pulvinar euismod orci. <b>Vivamus sit amet arcu blandit</b>, pellentesque dolor in, venenatis felis. Mauris et placerat nisl, congue iaculis nibh. Etiam eget urna in purus pellentesque tempus. In rhoncus sapien lectus, et pretium nibh dictum eget. In hac habitasse platea dictumst. Quisque massa felis, interdum varius ultrices viverra, varius id mi. Nulla eu lacus metus. 
-        </event-detail>
-        <!-- <button ion-button clear item-end>View</button> -->
-      </button>
-    </ion-list>
-
- 
 </ion-content>

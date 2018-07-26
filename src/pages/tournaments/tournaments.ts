@@ -19,9 +19,9 @@ export class TournamentsPage {
     this.restProvider.getAllTournaments().then(
       data => {
         this.tournaments = data;
-        console.log(this.tournaments);
+        console.log(data);
       }
-     );
+    );
   }
 
   ionViewDidLoad() {

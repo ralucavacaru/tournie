@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { RestProvider } from '../../providers/rest/rest';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class HomePage {
     itemExpandHeight: number = 100;
     tournament: any;
  
-    constructor(public navCtrl: NavController, private storage: Storage) {
+    constructor(public navCtrl: NavController, private storage: Storage, public restProvider: RestProvider) {
         this.storage.get('activeTournament').then((val) => {
             this.tournament = val;
         });

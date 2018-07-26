@@ -13,11 +13,9 @@ export class TournamentDetailPage {
 
   homePage = HomePage;
   tournament: any;
-  // localStorage: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
   	this.tournament = this.navParams.get('tournament');
-    // this.localStorage = this.storage;
   }
 
   ionViewDidLoad() {
