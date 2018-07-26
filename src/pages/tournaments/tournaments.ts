@@ -43,8 +43,15 @@ export class TournamentsPage {
   }
 
   async loadTournaments() {
-    return await this.http.get(this.loadTournamentsURL);
-    // .map(res => res.json().name)
+    let response = await this.http.get(this.loadTournamentsURL)
+                                  .map(res => res.json().results)
+                                  .subscribe(
+                                    (res)=> {
+                                      console.log(res)
+                                    },
+                                    (err)=>{
+                                    }
+                                  );
+    return response;
   }
-
 }
