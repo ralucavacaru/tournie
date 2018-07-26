@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+
 
 @Component({
   selector: 'page-home',
@@ -9,20 +11,22 @@ export class HomePage {
 
     items: any = [];
     itemExpandHeight: number = 100;
+    tournament: any;
  
-    constructor(public navCtrl: NavController) {
- 
+    constructor(public navCtrl: NavController, private storage: Storage) {
+        this.storage.get('activeTournament').then((val) => {
+            this.tournament = val;
+        });
+
         this.items = [
             {expanded: false, type: 1},
             {expanded: false, type: 2},
             {expanded: false, type: 5},
         ];
         this.items[0].expanded = true;
- 
     }
  
     expandItem(item){
- 
         this.items.map((listItem) => {
  
             if(item == listItem){
@@ -34,7 +38,6 @@ export class HomePage {
             return listItem;
  
         });
- 
     }
 
 }

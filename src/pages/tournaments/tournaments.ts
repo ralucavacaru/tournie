@@ -13,6 +13,9 @@ export class TournamentsPage {
   tournaments: any = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider) {
+  }
+
+  ionViewWillEnter() {
     this.restProvider.getAllTournaments().then(
       data => {
         this.tournaments = data;
