@@ -11,24 +11,9 @@ export class RestProvider {
     console.log('Hello RestProvider Provider');
   }
 
-  loadTournaments() {
-
-  	// let response = await this.http.get(this.loadTournamentsURL).toPromise();
-  	// console.log(response);
-  	// return response;
-
-    // let response = await this.http.get(this.loadTournamentsURL).toPromise()
-    //                               .map(res => res.json().results)
-    //                               .subscribe(
-    //                                 (res)=> {
-    //                                   console.log(res)
-    //                                 },
-    //                                 (err)=>{
-    //                                 }
-    //                               );
-    // return response;
-
-
+  // Fetches all tournaments. 
+  // Return: array of Tournaments wrapped in a Promise
+  getAllTournaments() {
     return new Promise(resolve => {
       this.http.get(this.loadTournamentsURL).subscribe(data => {
         resolve(data);
@@ -36,14 +21,34 @@ export class RestProvider {
         console.log(err);
       });
     });
+  }
 
+  // Fetches user by id.
+  // Params: user id
+  // Return: User wrapped in a Promise
+  getUserById(id) {
 
-    // return [
-    //   {expanded: false, name: "Belgrade Open"},
-    //   {expanded: false, name: "Novi Sad EUDC"},
-    //   {expanded: false, name: "Lorem Ipsum IV"},
-    //   {expanded: false, name: "Amet Open"},
-    // ];
+  }
+
+  // Fetches users associated to a unique tabbyCat URL
+  // Params: url
+  // Return: array of Users (one or two) wrapped in a Promise
+  getUsersByUrl(url) {
+
+  }
+
+  // Fetches three current/upcoming events
+  // Params: tournament id, current time
+  // Return: array of 3 Events wrapped in a Promise
+  getHomepageEvents(id, time) {
+
+  }
+
+  // Fetches the schedule of a tournament
+  // Params: tournament id
+  // Return: array of Events wrapped in a Promise
+  getSchedule(id) {
+
   }
 
 }

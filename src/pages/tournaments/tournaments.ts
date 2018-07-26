@@ -13,7 +13,7 @@ export class TournamentsPage {
   tournaments: any = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider) {
-    this.restProvider.loadTournaments().then(
+    this.restProvider.getAllTournaments().then(
       data => {
         this.tournaments = data;
         console.log(this.tournaments);
