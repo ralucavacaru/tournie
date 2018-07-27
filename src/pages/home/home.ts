@@ -19,20 +19,22 @@ export class HomePage {
     constructor(public navCtrl: NavController, private storage: Storage, public restProvider: RestProvider) {
         this.storage.get('activeTournament').then((val) => {
             this.tournament = val;
+
+            this.restProvider.getHomepageEvents(this.tournament.id, "2018-07-27 18:30:00").then(res => {
+            this.events = res;
+            console.log(this.events);
+
+            for (let i=0; i<this.events.length; i++) {
+                this.expandedEvents.push({
+                    event: this.events[i],
+                    expanded: false,
+                })
+            }
+            this.expandedEvents[0].expanded = true;
+          });
         });
 
-        this.restProvider.getHomepageEvents(1, "2018-07-27 18:30:00").then(res => {
-          this.events = res;
-          console.log(this.events);
-
-          for (let i=0; i<this.events.length; i++) {
-              this.expandedEvents.push({
-                  event: this.events[i],
-                  expanded: false,
-              })
-          }
-          this.expandedEvents[0].expanded = true;
-        });
+        
     }
  
     expandItem(item){
