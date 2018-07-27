@@ -68,8 +68,8 @@ export class RestProvider {
   // Return: array of 3 Events wrapped in a Promise
   getHomepageEvents(id, time) {
     let body = {
-      tournament_id : 1,
-      current_time : "2018-07-27 18:30:00"
+      tournament_id : id,
+      current_time : time
     };
 
     return new Promise(resolve => {
