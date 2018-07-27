@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
 import { Storage } from '@ionic/storage';
+import { RestProvider } from '../../providers/rest/rest';
+import { ConfirmNamePage } from '../confirm-name/confirm-name';
 
 
 @IonicPage()
@@ -11,10 +12,14 @@ import { Storage } from '@ionic/storage';
 })
 export class TournamentDetailPage {
 
-  homePage = HomePage;
   tournament: any;
+  url: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+  constructor(
+              public navCtrl: NavController, 
+              public navParams: NavParams, 
+              private storage: Storage, 
+              public restProvider: RestProvider) {
   	this.tournament = this.navParams.get('tournament');
   }
 
@@ -22,9 +27,11 @@ export class TournamentDetailPage {
     console.log('ionViewDidLoad TournamentDetailPage');
   }
 
-  logIn() {
-    this.storage.set('activeTournament', this.tournament);
-    this.navCtrl.setRoot(this.homePage, {}, {animate: true, direction: "forward"});
+  onClickLogIn() {
+    this.navCtrl.push(ConfirmNamePage, {
+      url: this.url,
+      tournament: this.tournament,
+    });
   }
 
 }

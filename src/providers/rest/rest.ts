@@ -37,7 +37,7 @@ export class RestProvider {
   // Params: url
   // Return: array of Users (one or two) wrapped in a Promise
   getUsersByUrl(url) {
-
+    return [{"user":{"id":"3","name":"Milos Marjanovic","university_id":"1"},"role":"Debating"},{"user":{"id":"4","name":"Aleksandra Mihajlovic","university_id":"1"},"role":"Debating"}];
   }
 
   // Fetches three current/upcoming events

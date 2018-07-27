@@ -21,13 +21,6 @@ export class HomePage {
             this.tournament = val;
         });
 
-        this.items = [
-            {expanded: false, type: 1},
-            {expanded: false, type: 2},
-            {expanded: false, type: 5},
-        ];
-        this.items[0].expanded = true;
-
         this.events = this.restProvider.getHomepageEvents(1,1);
         console.log(this.events);
 
@@ -37,6 +30,7 @@ export class HomePage {
                 expanded: false,
             })
         }
+        this.expandedEvents[0].expanded = true;
     }
  
     expandItem(item){

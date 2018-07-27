@@ -22,8 +22,8 @@
   	<div class="login-wrapper">
   		<h2>Log in</h2>
   		<p>Enter your unique TabbyCat feedback URL below to log in.</p>
-  		<ion-input type="text" name="title" placeholder="URL"></ion-input>
-  		<button (click)="logIn()">Log In</button>
+  		<ion-input [(ngModel)]="url" type="text" name="title" placeholder="URL"></ion-input>
+  		<button (click)="onClickLogIn()">Log In</button>
   	</div>
 
 </ion-content>

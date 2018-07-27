@@ -1,0 +1,20 @@
+page-confirm-name {
+	.back-button .button-inner {
+		color: white;
+	}
+	p {
+		font-family: 'Lato', sans-serif;
+		margin: 10px 0;
+	}
+	h2 {
+		font-family: 'Roboto Condensed', sans-serif;
+		font-weight: 700;
+		font-size: 22px;
+		color: map-get($colors, primary);
+	}
+	ion-item {
+		font-family: 'Lato', sans-serif;
+		font-weight: 700;
+		padding-right: 16px !important;
+	}
+}

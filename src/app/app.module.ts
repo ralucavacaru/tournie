@@ -12,6 +12,7 @@ import { ProfilePage } from '../pages/profile/profile';
 import { TournamentsPage} from '../pages/tournaments/tournaments'
 import { EventDetailComponent } from '../components/event-detail/event-detail';
 import { TournamentDetailPage } from '../pages/tournament-detail/tournament-detail';
+import { ConfirmNamePage } from '../pages/confirm-name/confirm-name';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -27,6 +28,7 @@ import { RestProvider } from '../providers/rest/rest';
     TournamentsPage,
     EventDetailComponent,
     TournamentDetailPage,
+    ConfirmNamePage,
   ],
   imports: [
     BrowserModule,
@@ -46,12 +48,13 @@ import { RestProvider } from '../providers/rest/rest';
     ProfilePage,
     TournamentsPage,
     TournamentDetailPage,
+    ConfirmNamePage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RestProvider
+    RestProvider,
   ]
 })
 export class AppModule {}
