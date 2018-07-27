@@ -44,12 +44,13 @@ export class TournamentsPage {
 
   async loadTournaments() {
     let response = await this.http.get(this.loadTournamentsURL)
-                                  .map(res => res.json().results)
+                                  .map(res => res.json().name)
                                   .subscribe(
                                     (res)=> {
                                       console.log(res)
                                     },
                                     (err)=>{
+                                      console.log(err)
                                     }
                                   );
     return response;
