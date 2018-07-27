@@ -24,7 +24,10 @@ export class ConfirmNamePage {
   	this.url = this.navParams.get('url');
   	this.tournament = this.navParams.get('tournament');
 
-  	this.restProvider.getUsersByUrl('url').then(res => { this.users = res; console.log(this.users) });
+  	this.restProvider.getUsersByUrl('url', 2).then(res => {
+      this.users = res;
+      console.log(this.users);
+    });
   }
 
   ionViewDidLoad() {

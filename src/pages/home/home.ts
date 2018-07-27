@@ -21,16 +21,18 @@ export class HomePage {
             this.tournament = val;
         });
 
-        this.events = this.restProvider.getHomepageEvents(1,1);
-        console.log(this.events);
+        this.restProvider.getHomepageEvents(1,1).then(res => {
+          this.events = res;
+          console.log(this.events);
 
-        for (let i=0; i<this.events.length; i++) {
-            this.expandedEvents.push({
-                event: this.events[i],
-                expanded: false,
-            })
-        }
-        this.expandedEvents[0].expanded = true;
+          for (let i=0; i<this.events.length; i++) {
+              this.expandedEvents.push({
+                  event: this.events[i],
+                  expanded: false,
+              })
+          }
+          this.expandedEvents[0].expanded = true;
+        });
     }
  
     expandItem(item){
