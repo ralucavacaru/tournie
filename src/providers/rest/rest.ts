@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
 
 @Injectable()
 export class RestProvider {
@@ -30,21 +29,49 @@ export class RestProvider {
   // Params: user id
   // Return: User wrapped in a Promise
   getUserById(id) {
-
   }
 
   // Fetches users associated to a unique tabbyCat URL
-  // Params: url
+  // Params: URL, tournament id
   // Return: array of Users (one or two) wrapped in a Promise
   getUsersByUrl(url) {
-    return [{"user":{"id":"3","name":"Milos Marjanovic","university_id":"1"},"role":"Debating"},{"user":{"id":"4","name":"Aleksandra Mihajlovic","university_id":"1"},"role":"Debating"}];
+    let body = {
+      link : "linklink",
+      tournament_id : "2"
+    };
+
+    return new Promise(resolve => {
+      this.http.post(this.apiUrl + this.userPrefix + "/get-by-link", JSON.stringify(body))
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+    // return [{"user":{"id":"3","name":"Milos Marjanovic","university_id":"1"},"role":"Debating"},{"user":{"id":"4","name":"Aleksandra Mihajlovic","university_id":"1"},"role":"Debating"}];
   }
 
   // Fetches three current/upcoming events
   // Params: tournament id, current time
   // Return: array of 3 Events wrapped in a Promise
   getHomepageEvents(id, time) {
-    return [{"event":{"id":"1","name":"Registration","date_start":"2018-07-27 17:00:00","date_end":"2018-07-27 20:00:00","tournament_id":"1","type":"1","venue_id":"1","room_id":null},"venue":{"id":"1","name":"Hostel","about":"Some details about hostel","location":"latitude and longitude"},"room":""},{"event":{"id":"2","name":"Dinner","date_start":"2018-07-27 19:00:00","date_end":"2018-07-27 20:00:00","tournament_id":"1","type":"5","venue_id":"1","room_id":null},"venue":{"id":"1","name":"Hostel","about":"Some details about hostel","location":"latitude and longitude"},"room":""},{"event":{"id":"3","name":"Socials","date_start":"2018-07-27 21:00:00","date_end":"2018-07-28 02:00:00","tournament_id":"1","type":"3","venue_id":"2","room_id":null},"venue":{"id":"2","name":"Monk's Bar","about":"Some information about the bar","location":"44.8032902,20.4721153"},"room":""}];
+    let headers = new HttpHeaders().set('Content-Type', 'application/json')
+
+    let body = {
+      tournament_id : 1,
+      current_time:"2018-07-27 18:30:00"
+    };
+
+    return new Promise(resolve => {
+      this.http.post(this.apiUrl + this.userPrefix + "/home", JSON.stringify(body),
+                    {headers: headers})
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+    // return [{"event":{"id":"1","name":"Registration","date_start":"2018-07-27 17:00:00","date_end":"2018-07-27 20:00:00","tournament_id":"1","type":"1","venue_id":"1","room_id":null},"venue":{"id":"1","name":"Hostel","about":"Some details about hostel","location":"latitude and longitude"},"room":""},{"event":{"id":"2","name":"Dinner","date_start":"2018-07-27 19:00:00","date_end":"2018-07-27 20:00:00","tournament_id":"1","type":"5","venue_id":"1","room_id":null},"venue":{"id":"1","name":"Hostel","about":"Some details about hostel","location":"latitude and longitude"},"room":""},{"event":{"id":"3","name":"Socials","date_start":"2018-07-27 21:00:00","date_end":"2018-07-28 02:00:00","tournament_id":"1","type":"3","venue_id":"2","room_id":null},"venue":{"id":"2","name":"Monk's Bar","about":"Some information about the bar","location":"44.8032902,20.4721153"},"room":""}];
   }
 
   // Fetches the schedule of a tournament
