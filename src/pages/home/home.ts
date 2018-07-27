@@ -21,7 +21,7 @@ export class HomePage {
             this.tournament = val;
         });
 
-        this.restProvider.getHomepageEvents(1,1).then(res => {
+        this.restProvider.getHomepageEvents(1, "2018-07-27 18:30:00").then(res => {
           this.events = res;
           console.log(this.events);
 
