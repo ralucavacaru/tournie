@@ -18,6 +18,22 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RestProvider } from '../providers/rest/rest';
 
+import { Firebase } from '@ionic-native/firebase';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { FcmProvider } from '../providers/fcm/fcm';
+
+const firebase = {
+  apiKey: "AIzaSyAXiAk7go-tHQV03YGOL8D-tu39A5KsnXs",
+  authDomain: "tournie-ff873.firebaseapp.com",
+  databaseURL: "https://tournie-ff873.firebaseio.com",
+  projectId: "tournie-ff873",
+  storageBucket: "tournie-ff873.appspot.com",
+  messagingSenderId: "737864435118"
+}
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -38,6 +54,8 @@ import { RestProvider } from '../providers/rest/rest';
       mode: 'md'
     }),
     IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(firebase), 
+    AngularFirestoreModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -55,6 +73,8 @@ import { RestProvider } from '../providers/rest/rest';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RestProvider,
+    Firebase,
+    FcmProvider,
   ]
 })
 export class AppModule {}

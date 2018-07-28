@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "737864435118",
+    "firebase_url": "https://tournie-ff873.firebaseio.com",
+    "project_id": "tournie-ff873",
+    "storage_bucket": "tournie-ff873.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737864435118:android:45977e70de749437",
+        "android_client_info": {
+          "package_name": "com.tournie.tournie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "737864435118-nmea94fdhspqa7m0aiuqdkc11528hqui.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tournie.tournie",
+            "certificate_hash": "8fa76054570b504e0e715388dfeaad3c2d8937be"
+          }
+        },
+        {
+          "client_id": "737864435118-kiepbs5qqseuok0kiclvfnp4likd8unv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8anVwxREF0JAqPXckGGzfzQ8N2TvGcoU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "737864435118-kiepbs5qqseuok0kiclvfnp4likd8unv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "737864435118-sqhbq9tlafndtrtauk93pq79a4bpivoh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tournie.tournie"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
