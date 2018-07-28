@@ -58,8 +58,8 @@
       "cordova-plugin-actionsheet": {}
     },
     "platforms": [
-      "android",
-      "ios"
+      "ios",
+      "android"
     ]
   }
 }
