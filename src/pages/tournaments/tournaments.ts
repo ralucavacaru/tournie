@@ -26,6 +26,7 @@ export class TournamentsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TournamentsPage');
+    console.log(this.tournaments);
   }
 
   onClickTournament(tournament) {

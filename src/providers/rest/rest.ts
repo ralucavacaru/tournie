@@ -53,12 +53,12 @@ export class RestProvider {
     };
     console.log(body);
 
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       this.http.post(this.apiUrl + this.userPrefix + "/get-by-link", JSON.stringify(body))
       .subscribe(data => {
         resolve(data);
       }, err => {
-        console.log(err);
+        return reject(err);
       });
     });
     // mock: return [{"user":{"id":"3","name":"Milos Marjanovic","university_id":"1"},"role":"Debating"},{"user":{"id":"4","name":"Aleksandra Mihajlovic","university_id":"1"},"role":"Debating"}];

@@ -8,7 +8,10 @@
 
 <ion-content padding>
 
-	<ion-list>
+  <div class="loading" *ngIf="tournaments.length == 0">
+    <ion-spinner></ion-spinner>
+  </div>
+	<ion-list *ngIf="tournaments.length != 0">
       <ion-item 
       	*ngFor="let tournament of tournaments" 
       	(click)="onClickTournament(tournament)"

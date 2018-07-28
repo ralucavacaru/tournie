@@ -9,7 +9,11 @@
 
 <ion-content padding>
 
-	<div class="confirm-name" *ngIf="users?.length > 0; else reenter_url">
+	<div class="loading" *ngIf="users == null">
+	    <ion-spinner></ion-spinner>
+	  </div>
+
+	<div class="confirm-name" *ngIf="users?.length > 0">
 		<h2>Confirm your name</h2>
 		<p>Tap on your name below to confirm</p>
 
@@ -26,8 +30,8 @@
 		
 	</div>
 
-	<ng-template #reenter_url>
+	<div class="confirm-name" *ngIf="users?.length == 0">
 		<p>The URL you entered didn't return any users. Please go back and try again.</p>
-	</ng-template>
+	</div>
 
 </ion-content>

@@ -14,7 +14,7 @@ export class ConfirmNamePage {
   
   url: any;
   tournament: any;
-  users: any = [];
+  users: any = null;
   homePage = HomePage;
 
   constructor(public navCtrl: NavController, 
@@ -27,7 +27,11 @@ export class ConfirmNamePage {
   	this.restProvider.getUsersByUrl(this.url, this.tournament.id).then(res => {
       this.users = res;
       console.log(this.users);
-    });
+    }, ((err) => {
+      if (err.status == '404') {
+        this.users = [];
+      }
+    }));
   }
 
   ionViewDidLoad() {

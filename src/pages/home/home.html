@@ -20,6 +20,10 @@
 
   <div class="events">
     <h1>Coming up...</h1>
+
+    <div class="loading" *ngIf="events.length == 0">
+      <ion-spinner></ion-spinner>
+    </div>
     
   	<ion-list class="schedule-wrapper">
         <button detail-none (click)="expandItem(item)" ion-item 

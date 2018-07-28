@@ -9,6 +9,10 @@
 
 <ion-content padding>
 
+    <div class="loading" *ngIf="schedule.length == 0">
+      <ion-spinner></ion-spinner>
+    </div>
+
     <ion-list class="schedule-wrapper" *ngFor="let day of expandedSchedule">
       <h1><b>{{day.date | date}}</b></h1>
       <button detail-none (click)="expandItem(item)" ion-item 
