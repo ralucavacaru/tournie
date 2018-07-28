@@ -16,7 +16,7 @@ export class RestProvider {
   // Fetches all tournaments. 
   // Return: array of Tournaments wrapped in a Promise
   getAllTournaments() {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       this.http.get(this.apiUrl + this.tournamentPrefix + "/get-all").subscribe(data => {
         resolve(data);
       }, err => {
@@ -33,7 +33,7 @@ export class RestProvider {
       user_id: id
     };
 
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       this.http.post(this.apiUrl + this.userPrefix + "/get-by-id", JSON.stringify(body))
       .subscribe(data => {
         resolve(data);
@@ -73,12 +73,12 @@ export class RestProvider {
       current_time : time
     };
 
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       this.http.post(this.apiUrl + this.eventPrefix + "/home", JSON.stringify(body))
       .subscribe(data => {
         resolve(data);
       }, err => {
-        console.log(err);
+        return reject(err);
       });
     });
     // mock: return [{"event":{"id":"1","name":"Registration","date_start":"2018-07-27 17:00:00","date_end":"2018-07-27 20:00:00","tournament_id":"1","type":"1","venue_id":"1","room_id":null},"venue":{"id":"1","name":"Hostel","about":"Some details about hostel","location":"latitude and longitude"},"room":""},{"event":{"id":"2","name":"Dinner","date_start":"2018-07-27 19:00:00","date_end":"2018-07-27 20:00:00","tournament_id":"1","type":"5","venue_id":"1","room_id":null},"venue":{"id":"1","name":"Hostel","about":"Some details about hostel","location":"latitude and longitude"},"room":""},{"event":{"id":"3","name":"Socials","date_start":"2018-07-27 21:00:00","date_end":"2018-07-28 02:00:00","tournament_id":"1","type":"3","venue_id":"2","room_id":null},"venue":{"id":"2","name":"Monk's Bar","about":"Some information about the bar","location":"44.8032902,20.4721153"},"room":""}];

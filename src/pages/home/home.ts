@@ -16,6 +16,7 @@ export class HomePage {
     tournament: any;
     events: any = [];
     expandedEvents: any = [];
+    isEventOver: boolean = false;
  
     constructor(public navCtrl: NavController, private storage: Storage, public restProvider: RestProvider) {
         this.storage.get('activeTournament').then((val) => {
@@ -36,6 +37,8 @@ export class HomePage {
                 })
             }
             this.expandedEvents[0].expanded = true;
+          }, (err) => {
+              this.isEventOver = true;
           });
         });
 

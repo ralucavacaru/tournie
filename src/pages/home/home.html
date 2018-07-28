@@ -19,12 +19,15 @@
   </div>
 
   <div class="events">
-    <h1>Coming up...</h1>
+    <h1 *ngIf="!isEventOver">Coming up...</h1>
 
-    <div class="loading" *ngIf="events.length == 0">
+    <div class="loading" *ngIf="events.length == 0 && !isEventOver">
       <ion-spinner></ion-spinner>
     </div>
-    
+    <div *ngIf="isEventOver" class="schedule-wrapper">
+      <h2>{{tournament?.name}} is over!</h2>
+      <p>Check the schedule page for the full schedule, or log out to see all the available tournaments.</p>
+    </div>
   	<ion-list class="schedule-wrapper">
         <button detail-none (click)="expandItem(item)" ion-item 
                 *ngFor="let item of expandedEvents" 
