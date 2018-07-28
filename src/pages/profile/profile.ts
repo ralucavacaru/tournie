@@ -30,6 +30,8 @@ export class ProfilePage {
   }
 
   logOut() {
+    this.storage.set('activeUser', null);
+    this.storage.set('activeTournament', null);
     this.navCtrl.setRoot(this.tournamentsPage, {}, {animate: true, direction: "back"});
   }
 

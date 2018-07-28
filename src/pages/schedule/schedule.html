@@ -35,10 +35,14 @@
               <br>
             </div>
             <div *ngIf="item.detail?.round?.infoslide != null">
-              {{item.detail?.round?.infoslide}}
+              <b>Info Slide: </b>{{item.detail?.round?.infoslide}}
               <br>
             </div>
-            {{item.detail?.round?.motion}}
+            <div *ngIf="item.detail?.round?.motion != null">
+              <b>Motion: </b>{{item.detail?.round?.motion}}
+              <br>
+            </div>
+            
         </event-detail>
       </button>
     </ion-list>

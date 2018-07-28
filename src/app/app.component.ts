@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Storage } from '@ionic/storage';
 
 import { HomePage } from '../pages/home/home';
 import { NotificationsLogPage } from '../pages/notifications-log/notifications-log';
@@ -16,19 +17,32 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = TournamentsPage;
+  activeTournament: any;
+  activeUser: any;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private storage: Storage) {
     this.initializeApp();
 
     // used for sidebar navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Notifications Log', component: NotificationsLogPage},
+      // { title: 'Notifications Log', component: NotificationsLogPage},
       { title: 'Schedule', component: SchedulePage },
       { title: 'Profile', component: ProfilePage },
     ];
+
+    this.storage.get('activeTournament').then((tournament) => {
+      this.activeTournament = tournament;
+      this.storage.get('activeUser').then((user) => {
+        this.activeUser = user;
+
+        if (this.activeTournament != null && this.activeUser != null) {
+          this.rootPage = HomePage;
+        }
+      })
+    })
 
   }
 
