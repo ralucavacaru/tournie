@@ -88,7 +88,7 @@ export class RestProvider {
   // Return: array of Events wrapped in a Promise
   getSchedule(id) {
     let body = {
-      tournament_id : "1"
+      tournament_id : id
     };
 
     return new Promise(resolve => {
