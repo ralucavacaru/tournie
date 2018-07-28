@@ -18,41 +18,38 @@ export class SchedulePage {
  
     constructor(public navCtrl: NavController, public restProvider: RestProvider, private storage: Storage) {
         this.storage.get('activeTournament').then((val) => {
-            this.restProvider.getSchedule(val.id).then(
-              data => {
-                this.schedule = data;
-                console.log(this.schedule);
+            this.restProvider.getSchedule(val.id).then(res => {
+                this.expandSchedule(val);
+            });
+        });
+    }
 
-                this.schedule = this.restProvider.getSchedule(1).then(res => {
-                  this.schedule = res;
-                  for (let i=0; i<this.schedule.length; i++) {
-                    let day = this.schedule[i].event.date_start.substring(0,10);
-                    if (!this.days.includes(day)) {
-                        this.days.push(day);
-                    }
-                  }
-                  for (let i=0; i<this.days.length; i++) {
-                      let aux = [];
-                      for (let j=0; j<this.schedule.length; j++) {
-                          if (this.schedule[j].event.date_start.includes(this.days[i])) {
-                              aux.push({
-                                  detail: this.schedule[j],
-                                  expanded: false,
-                              })
-                          }
-                      }
-                      this.expandedSchedule.push({
-                          date: this.days[i],
-                          events: aux,
-                      });
-                  }
-                });
+    expandSchedule(schedule) {
+      this.schedule = schedule;
+      for (let i=0; i<this.schedule.length; i++) {
+        let day = this.schedule[i].event.date_start.substring(0,10);
+        if (!this.days.includes(day)) {
+            this.days.push(day);
+        }
+      }
+      for (let i=0; i<this.days.length; i++) {
+          let aux = [];
+          for (let j=0; j<this.schedule.length; j++) {
+              if (this.schedule[j].event.date_start.includes(this.days[i])) {
+                  aux.push({
+                      detail: this.schedule[j],
+                      expanded: false,
+                  })
               }
-            );
-        })
+          }
+          this.expandedSchedule.push({
+              date: this.days[i],
+              events: aux,
+          });
+        }
     }
  
-    expandItem(item){
+    expandItem(item) {
         this.expandedSchedule.map((day) => {
             day.events.map((listItem) => {
                 if(item == listItem){
