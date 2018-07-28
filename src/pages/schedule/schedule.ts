@@ -19,6 +19,7 @@ export class SchedulePage {
     constructor(public navCtrl: NavController, public restProvider: RestProvider, private storage: Storage) {
         this.storage.get('activeTournament').then((val) => {
             this.restProvider.getSchedule(val.id).then(res => {
+                console.log(res);
                 this.expandSchedule(res);
             });
         });

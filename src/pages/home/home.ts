@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { RestProvider } from '../../providers/rest/rest';
+import moment from 'moment';
 
 
 @Component({
@@ -20,7 +21,11 @@ export class HomePage {
         this.storage.get('activeTournament').then((val) => {
             this.tournament = val;
 
-            this.restProvider.getHomepageEvents(this.tournament.id, "2018-07-27 18:30:00").then(res => {
+            let currentDate = new Date();
+            console.log(currentDate);
+            let transformedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+            console.log(transformedDate);
+            this.restProvider.getHomepageEvents(this.tournament.id, transformedDate).then(res => {
             this.events = res;
             console.log(this.events);
 

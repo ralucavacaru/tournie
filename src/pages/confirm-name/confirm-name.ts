@@ -20,11 +20,11 @@ export class ConfirmNamePage {
   constructor(public navCtrl: NavController, 
 			  public navParams: NavParams,
 			  private storage: Storage, 
-              public restProvider: RestProvider) {
+        public restProvider: RestProvider) {
   	this.url = this.navParams.get('url');
   	this.tournament = this.navParams.get('tournament');
 
-  	this.restProvider.getUsersByUrl('url', 2).then(res => {
+  	this.restProvider.getUsersByUrl(this.url, this.tournament.id).then(res => {
       this.users = res;
       console.log(this.users);
     });

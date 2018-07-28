@@ -18,32 +18,42 @@
       <br>
   </div>
 
-  <h1>Coming up...</h1>
-  
-	<ion-list class="schedule-wrapper">
-      <button detail-none (click)="expandItem(item)" ion-item 
-              *ngFor="let item of expandedEvents" 
-              [ngClass]="{'registration': item.event.event.type==1,
-                          'round': item.event.event.type==2,
-                          'social': item.event.event.type==3,
-                          'workshop': item.event.event.type==4,
-                          'meal': item.event.event.type==5,
-                          'transport': item.event.event.type==6,
-                          'briefing': item.event.event.type==7,
-                          'misc': item.event.event.type==8}"
-              text-wrap>
-        <div class="item-head">
-          <h2>{{item.event.event.name}}</h2>
-          <p class="event-subtitle">
-            <i class="fas fa-clock"></i> {{item.event.event.date_start | date:'shortTime'}} - {{item.event.event.date_end | date:'shortTime'}} &emsp; 
-            <i class="fas fa-map-marker-alt"></i> {{item.event?.room.name}} {{item.event.venue.name}}
-          </p>
-        </div>
-        <event-detail [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
-            {{item.event.event.description}}
-        </event-detail>
-        <!-- <button ion-button clear item-end>View</button> -->
-      </button>
-    </ion-list>
+  <div class="events">
+    <h1>Coming up...</h1>
+    
+  	<ion-list class="schedule-wrapper">
+        <button detail-none (click)="expandItem(item)" ion-item 
+                *ngFor="let item of expandedEvents" 
+                [ngClass]="{'registration': item.event.event.type==1,
+                            'round': item.event.event.type==2,
+                            'social': item.event.event.type==3,
+                            'workshop': item.event.event.type==4,
+                            'meal': item.event.event.type==5,
+                            'transport': item.event.event.type==6,
+                            'briefing': item.event.event.type==7,
+                            'misc': item.event.event.type==8}"
+                text-wrap>
+          <div class="item-head">
+            <h2>{{item.event.event.name}}</h2>
+            <p class="event-subtitle">
+              <i class="fas fa-clock"></i> {{item.event.event.date_start | date:'shortTime'}} - {{item.event.event.date_end | date:'shortTime'}} &emsp; 
+              <i class="fas fa-map-marker-alt"></i> {{item.event?.room.name}} {{item.event.venue.name}}
+            </p>
+          </div>
+          <event-detail [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
+              <div *ngIf="item.event.event?.description != null">
+              {{item.event.event?.description}}
+              <br>
+            </div>
+            <div *ngIf="item.event?.round?.infoslide != null">
+              {{item.event?.round?.infoslide}}
+              <br>
+            </div>
+            {{item.event?.round?.motion}}
+          </event-detail>
+          <!-- <button ion-button clear item-end>View</button> -->
+        </button>
+      </ion-list>
+    </div>
 
 </ion-content>

@@ -30,7 +30,15 @@
           </p>
         </div>
         <event-detail [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
-            {{item.detail.event.description}}
+            <div *ngIf="item.detail.event?.description != null">
+              {{item.detail.event?.description}}
+              <br>
+            </div>
+            <div *ngIf="item.detail?.round?.infoslide != null">
+              {{item.detail?.round?.infoslide}}
+              <br>
+            </div>
+            {{item.detail?.round?.motion}}
         </event-detail>
       </button>
     </ion-list>

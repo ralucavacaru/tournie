@@ -30,7 +30,7 @@ export class RestProvider {
   // Return: User wrapped in a Promise
   getUserById(id) {
     let body = {
-      user_id: 3
+      user_id: id
     };
 
     return new Promise(resolve => {
@@ -48,9 +48,10 @@ export class RestProvider {
   // Return: array of Users (one or two) wrapped in a Promise
   getUsersByUrl(url, id) {
     let body = {
-      link : "linklink",
-      tournament_id : "2"
+      link : url,
+      tournament_id : id,
     };
+    console.log(body);
 
     return new Promise(resolve => {
       this.http.post(this.apiUrl + this.userPrefix + "/get-by-link", JSON.stringify(body))
