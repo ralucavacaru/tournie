@@ -48,19 +48,42 @@
             </p>
           </div>
           <event-detail [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
-            <div *ngIf="item.event.event?.description != null">
-              {{item.event.event?.description}}
-              <br>
+
+            <!-- DESCRIPTION -->
+            <div *ngIf="item.event.event?.description != null; else alt_description">
+                <div *ngIf="item.event.event?.description.length > 0; else alt_description">
+                  {{item.event.event?.description}}
+                <br>
+              </div>
             </div>
-            <div *ngIf="item.event?.round?.infoslide != null">
-              <b>Info Slide: </b>{{item.event?.round?.infoslide}}
+            <ng-template #alt_description>
+              No description has been provided for this event
               <br>
+            </ng-template>
+
+            <!-- ONLY APPLIES TO ROUNDS -->
+            <div *ngIf="item.event.event.type==2">
+              <!-- INFO SLIDE -->
+              <div *ngIf="item.event?.round?.infoslide != null">
+                <div *ngIf="item.event?.round?.infoslide.length > 0">
+                  <b>Info Slide: </b>{{item.event?.round?.infoslide}}
+                  <br>
+                </div>
+              </div>
+
+              <!-- MOTION -->
+              <b>Motion: </b>
+              <div *ngIf="item.event?.round?.motion != null; else alt_motion">
+                {{item.event?.round?.motion}}
+                <br>
+              </div>
+              <ng-template #alt_motion>
+                The motion has not been released yet.
+                <br>
+              </ng-template>
             </div>
-            <div *ngIf="item.event?.round?.motion != null">
-              <b>Motion: </b>{{item.event?.round?.motion}}
-              <br>
-            </div>
-          </event-detail>
+            
+        </event-detail>
           <!-- <button ion-button clear item-end>View</button> -->
         </button>
       </ion-list>
