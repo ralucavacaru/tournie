@@ -11,6 +11,10 @@
   <div class="loading" *ngIf="tournaments.length == 0">
     <ion-spinner></ion-spinner>
   </div>
+<!--   <div>
+    {{token}}
+  </div> -->
+
 	<ion-list *ngIf="tournaments.length != 0">
       <ion-item 
       	*ngFor="let tournament of tournaments" 

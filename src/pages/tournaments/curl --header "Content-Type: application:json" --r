@@ -1,0 +1,25 @@
+curl --header "Content-Type: application/json" --request POST --data "{\"tournament_id\":\"1\"}" http://www.eudc-app.com/debate/event/schedule-observer
+
+
+curl --header "Content-Type: application/json" --request POST --data "{\"user_id\":\"linklink\",\"tournament_id\":\"2\"}" http://www.eudc-app.com/debate/user/get-by-link
+
+curl --header "Content-Type: application/json" --request POST --data "{\"user_id\":\"3\"}" http://www.eudc-app.com/debate/user/get-by-id
+
+
+
+
+ZIPALIGN: /Users/raluca/Library/Android/sdk/build-tools/28.0.1
+
+
+cd /Users/raluca/Documents/GitHub/eudc-app
+
+
+
+./zipalign -v 4 /Users/raluca/Documents/GitHub/eudc-app/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk Tournie.apk 
+
+
+jarsigner -verify -verbose -certs app-release-unsigned.apk
+
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk alias_name
+

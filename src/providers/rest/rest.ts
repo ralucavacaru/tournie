@@ -103,4 +103,20 @@ export class RestProvider {
     // mock: return [{"event":{"id":"1","name":"Registration","date_start":"2018-07-27 17:00:00","date_end":"2018-07-27 20:00:00","tournament_id":"1","type":"1","venue_id":"1","room_id":null},"venue":{"id":"1","name":"Hostel","about":"Some details about hostel","location":"latitude and longitude"},"room":""},{"event":{"id":"2","name":"Dinner","date_start":"2018-07-27 19:00:00","date_end":"2018-07-27 20:00:00","tournament_id":"1","type":"5","venue_id":"1","room_id":null},"venue":{"id":"1","name":"Hostel","about":"Some details about hostel","location":"latitude and longitude"},"room":""},{"event":{"id":"3","name":"Socials","date_start":"2018-07-27 21:00:00","date_end":"2018-07-28 02:00:00","tournament_id":"1","type":"3","venue_id":"2","room_id":null},"venue":{"id":"2","name":"Monk's Bar","about":"Some information about the bar","location":"44.8032902,20.4721153"},"room":""},{"event":{"id":"4","name":"Breakfast & Registration","date_start":"2018-07-28 08:00:00","date_end":"2018-07-28 09:00:00","tournament_id":"1","type":"1","venue_id":"3","room_id":"1"},"venue":{"id":"3","name":"Faculty of Organizational Sciences","about":"Some data about faculty","location":"44.7726008,20.4751682"},"room":{"id":"1","name":"B009","location":null,"description":null,"venue_id":"3"}},{"event":{"id":"5","name":"Briefings","date_start":"2018-07-28 09:00:00","date_end":"2018-07-28 09:30:00","tournament_id":"1","type":"7","venue_id":"3","room_id":"2"},"venue":{"id":"3","name":"Faculty of Organizational Sciences","about":"Some data about faculty","location":"44.7726008,20.4751682"},"room":{"id":"2","name":"B103","location":null,"description":null,"venue_id":"3"}},{"event":{"id":"6","name":"Round 1","date_start":"2018-07-28 09:30:00","date_end":"2018-07-28 11:30:00","tournament_id":"1","type":"2","venue_id":"3","room_id":"1"},"venue":{"id":"3","name":"Faculty of Organizational Sciences","about":"Some data about faculty","location":"44.7726008,20.4751682"},"room":{"id":"1","name":"B009","location":null,"description":null,"venue_id":"3"},"round":{"id":"1","motion":"TBA","infoslide":"N\/A","description":"Round 1 - Open round","event_id":"6"}}];
   }
 
+  setDeviceId(userId, deviceId) {
+    let body = {
+      user_id : userId,
+      device_id : deviceId,
+    };
+
+    return new Promise((resolve, reject) => {
+      this.http.post(this.apiUrl + this.userPrefix + "/device-id", JSON.stringify(body))
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        return reject(err);
+      });
+    });
+  }
+
 }

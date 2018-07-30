@@ -30,6 +30,21 @@ export class FcmProvider {
 	  return this.saveTokenToFirestore(token)
 	}
 
+  async getTokenForRest() {
+  	let token;
+
+	  if (this.platform.is('android')) {
+	    token = await this.firebaseNative.getToken()
+	  } 
+
+	  if (this.platform.is('ios')) {
+	    token = await this.firebaseNative.getToken();
+	    await this.firebaseNative.grantPermission();
+	  } 
+
+	  return token;
+  }
+
   // Save the token to firestore
   private saveTokenToFirestore(token) {
 	  if (!token) return;

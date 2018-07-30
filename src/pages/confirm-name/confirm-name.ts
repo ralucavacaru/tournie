@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { RestProvider } from '../../providers/rest/rest';
 import { HomePage } from '../home/home';
+import { FcmProvider } from '../../providers/fcm/fcm';
 
 
 @IonicPage()
@@ -16,11 +17,13 @@ export class ConfirmNamePage {
   tournament: any;
   users: any = null;
   homePage = HomePage;
+  response: any;
 
   constructor(public navCtrl: NavController, 
 			  public navParams: NavParams,
 			  private storage: Storage, 
-        public restProvider: RestProvider) {
+        public restProvider: RestProvider,
+        public fcm: FcmProvider) {
   	this.url = this.navParams.get('url');
   	this.tournament = this.navParams.get('tournament');
 
@@ -32,6 +35,7 @@ export class ConfirmNamePage {
         this.users = [];
       }
     }));
+
   }
 
   ionViewDidLoad() {
@@ -41,6 +45,16 @@ export class ConfirmNamePage {
   logIn(user) {
     this.storage.set('activeTournament', this.tournament);
     this.storage.set('activeUser', user);
+
+    this.fcm.getTokenForRest().then(token => {
+      this.restProvider.setDeviceId(user.user.id, token).then((response) => {
+        this.response = response;
+        console.log(response);
+      }, ((err) => {
+        console.log(err);
+      }));
+    });
+
     this.navCtrl.setRoot(this.homePage, {}, {animate: true, direction: "forward"});
   }
 
