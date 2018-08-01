@@ -1,2 +1,2 @@
-page-schedule h1{font-family:'Roboto Condensed', sans-serif;font-weight:400;padding:10px 10px 0;margin-top:10px}page-schedule .event-subtitle{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+page-schedule h1{font-family:'Roboto Condensed', sans-serif;font-weight:400;padding:10px 10px 0;margin-top:10px}page-schedule .day-header h1,page-schedule .day-header ion-icon{display:inline-block}page-schedule .day-header ion-icon{font-size:2em !important;float:right;padding-right:20px;padding-top:5px}
 /*# sourceMappingURL=schedule.css.map */

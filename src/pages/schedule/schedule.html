@@ -14,7 +14,13 @@
     </div>
 
     <ion-list class="schedule-wrapper" *ngFor="let day of expandedSchedule">
-      <h1><b>{{day.date | date}}</b></h1>
+      <div class="day-header" 
+            [ngClass]="{'nonExpandedDay': !day.expandedDay}"  (click)="expandDay(day)">
+        <h1><b>{{day.date | date}}</b></h1>
+        <ion-icon name="arrow-dropdown" *ngIf="!day.expandedDay"></ion-icon>
+        <ion-icon name="arrow-dropup" *ngIf="day.expandedDay"></ion-icon>
+      </div>
+      <div class="day-wrapper" *ngIf="day.expandedDay">
       <button detail-none (click)="expandItem(item)" ion-item 
               *ngFor="let item of day.events" 
               [ngClass]="{'registration': item.detail.event.type==1,
@@ -72,6 +78,7 @@
             
         </event-detail>
       </button>
+      </div>
     </ion-list>
 
 </ion-content>

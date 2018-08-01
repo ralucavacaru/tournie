@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { RestProvider } from '../../providers/rest/rest';
+import moment from 'moment';
 
 
 @IonicPage()
@@ -15,6 +16,8 @@ export class SchedulePage {
     schedule: any = [];
     expandedSchedule: any = [];
     days: any = [];
+    currentTime: any;
+
  
     constructor(public navCtrl: NavController, public restProvider: RestProvider, private storage: Storage) {
         this.storage.get('activeTournament').then((val) => {
@@ -33,6 +36,8 @@ export class SchedulePage {
             this.days.push(day);
         }
       }
+
+      let currentDate = moment().add(-1, 'days').format('YYYY-MM-DD HH:mm:ss');
       for (let i=0; i<this.days.length; i++) {
           let aux = [];
           for (let j=0; j<this.schedule.length; j++) {
@@ -43,11 +48,23 @@ export class SchedulePage {
                   })
               }
           }
+          let expanded = false;
+          if (currentDate < this.days[i]) {
+            expanded = true;
+          }
           this.expandedSchedule.push({
               date: this.days[i],
               events: aux,
+              expandedDay: expanded,
           });
         }
+
+        
+        this.days.forEach(function(day) {
+          if (day.date >= currentDate) {
+            day.expandedDay = true;
+          }
+        });
     }
  
     expandItem(item) {
@@ -64,10 +81,13 @@ export class SchedulePage {
         })
     }
 
+    expandDay(day) {
+      day.expandedDay = !day.expandedDay;
+    }
+
 
 
     ionViewDidLoad() {
     	console.log('ionViewDidLoad SchedulePage');
   	}
-
 }
