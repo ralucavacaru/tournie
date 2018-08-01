@@ -52,7 +52,7 @@
             <!-- DESCRIPTION -->
             <div *ngIf="item.event.event?.description != null; else alt_description">
                 <div *ngIf="item.event.event?.description.length > 0; else alt_description">
-                  {{item.event.event?.description}}
+                  <b>{{item.event.event?.description}}</b>
                 <br>
               </div>
             </div>
@@ -63,6 +63,7 @@
 
             <!-- ONLY APPLIES TO ROUNDS -->
             <div *ngIf="item.event.event.type==2">
+              <br>
               <!-- INFO SLIDE -->
               <div *ngIf="item.event?.round?.infoslide != null">
                 <div *ngIf="item.event?.round?.infoslide.length > 0">

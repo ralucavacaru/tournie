@@ -12,6 +12,7 @@ import { RestProvider } from '../../providers/rest/rest';
 })
 export class ProfilePage {
   user: any = {};
+  url: any;
 
   tournamentsPage = TournamentsPage;
 
@@ -23,6 +24,9 @@ export class ProfilePage {
     this.storage.get('activeUser').then((val) => {
         this.user = val;
     });
+    this.storage.get('url').then((val) => {
+      this.url = val;
+    })
   }
 
   ionViewDidLoad() {

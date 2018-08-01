@@ -11,6 +11,10 @@
   <div class="profile-wrapper">
   	<h1>{{user.user?.name}}</h1>
   	<div class="profile-item">
+      <span class="profile-label">TabbyCat URL:</span>
+      <span class="profile-value"><a href="{{url}}">{{url}}</a></span>
+      <br>
+
       <span class="profile-label">Role: </span>
       <span class="profile-value" *ngIf="user?.role == 0">Speaker</span>
       <span class="profile-value" *ngIf="user?.role == 1">Judge</span>

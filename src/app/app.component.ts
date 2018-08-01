@@ -12,7 +12,7 @@ import { TournamentsPage } from '../pages/tournaments/tournaments';
 
 import { FcmProvider } from '../providers/fcm/fcm';
 
-import { ToastController } from 'ionic-angular';
+import { ToastController, NavController } from 'ionic-angular';
 import { Subject } from 'rxjs/Subject';
 import { tap } from 'rxjs/operators';
 
@@ -28,13 +28,20 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private storage: Storage, public fcm: FcmProvider, public toastCtrl: ToastController) {
+  @ViewChild('content') navCtrl: NavController;
+
+  constructor(public platform: Platform, 
+              public statusBar: StatusBar, 
+              public splashScreen: SplashScreen, 
+              private storage: Storage, 
+              public fcm: FcmProvider, 
+              public toastCtrl: ToastController) {
     this.initializeApp();
 
     // used for sidebar navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      // { title: 'Notifications Log', component: NotificationsLogPage},
+      { title: 'Notifications Log', component: NotificationsLogPage},
       { title: 'Schedule', component: SchedulePage },
       { title: 'Profile', component: ProfilePage },
     ];
@@ -61,17 +68,15 @@ export class MyApp {
       this.fcm.getToken()
 
       // Listen to incoming messages
-      this.fcm.listenToNotifications().pipe(
-        tap(msg => {
-          // show a toast
-          const toast = this.toastCtrl.create({
-            message: msg.body,
-            duration: 3000
-          });
-          toast.present();
-        })
-      )
-      .subscribe()
+      this.fcm.listenToNotifications()
+      .subscribe(notification => {
+        if (notification.wasTapped) {
+          this.navCtrl.setRoot(NotificationsLogPage);
+        }
+        else {
+          this.navCtrl.push(NotificationsLogPage);
+        }
+      })
     });
   }
 

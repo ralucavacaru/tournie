@@ -45,6 +45,7 @@ export class ConfirmNamePage {
   logIn(user) {
     this.storage.set('activeTournament', this.tournament);
     this.storage.set('activeUser', user);
+    this.storage.set('url', this.url);
 
     this.fcm.getTokenForRest().then(token => {
       this.restProvider.setDeviceId(user.user.id, token).then((response) => {
