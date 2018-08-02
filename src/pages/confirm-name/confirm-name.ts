@@ -4,6 +4,7 @@ import { Storage } from '@ionic/storage';
 import { RestProvider } from '../../providers/rest/rest';
 import { HomePage } from '../home/home';
 import { FcmProvider } from '../../providers/fcm/fcm';
+import { SearchPipe } from '../../pipes/search/search';
 
 
 @IonicPage()

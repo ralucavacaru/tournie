@@ -8,22 +8,21 @@ page-notifications-log {
 		color: white;
 		padding: 5px 10px;
 		display: flex;
+		flex-basis: 100px;
+		justify-content: space-between;
 	}
 	.notification-content p {
 		font-size: 16px !important;
 		padding: 5px;
 	}
 	.notification-title {
-		flex: 3;
-		white-space: nowrap; 
-    	overflow: hidden;
-		text-overflow: ellipsis;
+
 	}
 	.timestamp {
-		flex: 1;
-		font-size: 16px;
+		font-size: 14px;
 		line-height: 30px;
 		text-align: right;
+		font-weight: 300;
 	}
 	.seen {
 		.notification-head {

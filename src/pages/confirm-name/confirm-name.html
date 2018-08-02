@@ -15,11 +15,13 @@
 
 	<div class="confirm-name" *ngIf="users?.length > 0">
 		<h2>Confirm your name</h2>
-		<p>Tap on your name below to confirm</p>
+		<p>Search for your name below, and tap it to confirm.</p>
+
+		<ion-searchbar [(ngModel)]="terms"></ion-searchbar>
 
 		<ion-list>
 	      <ion-item 
-	      	*ngFor="let user of users" 
+	      	*ngFor="let user of users | search : terms" 
 	      	(click)="logIn(user)"
 	      	text-wrap>
 	      	<div class="name">

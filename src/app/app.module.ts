@@ -23,6 +23,7 @@ import { Firebase } from '@ionic-native/firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { FcmProvider } from '../providers/fcm/fcm';
+import { SearchPipe } from '../pipes/search/search';
 
 const firebase = {
   apiKey: "AIzaSyAXiAk7go-tHQV03YGOL8D-tu39A5KsnXs",
@@ -45,6 +46,7 @@ const firebase = {
     EventDetailComponent,
     TournamentDetailPage,
     ConfirmNamePage,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,

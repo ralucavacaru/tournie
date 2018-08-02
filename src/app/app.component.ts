@@ -11,6 +11,7 @@ import { ProfilePage } from '../pages/profile/profile';
 import { TournamentsPage } from '../pages/tournaments/tournaments';
 
 import { FcmProvider } from '../providers/fcm/fcm';
+import { RestProvider } from '../providers/rest/rest';
 
 import { ToastController, NavController } from 'ionic-angular';
 import { Subject } from 'rxjs/Subject';
@@ -35,7 +36,8 @@ export class MyApp {
               public splashScreen: SplashScreen, 
               private storage: Storage, 
               public fcm: FcmProvider, 
-              public toastCtrl: ToastController) {
+              public toastCtrl: ToastController,
+              public restProvider: RestProvider) {
     this.initializeApp();
 
     // used for sidebar navigation
@@ -70,12 +72,12 @@ export class MyApp {
       // Listen to incoming messages
       this.fcm.listenToNotifications()
       .subscribe(notification => {
-        if (notification.wasTapped) {
-          this.navCtrl.setRoot(NotificationsLogPage);
-        }
-        else {
-          this.navCtrl.push(NotificationsLogPage);
-        }
+          if (notification.wasTapped) {
+            this.navCtrl.setRoot(NotificationsLogPage);
+          }
+          else {
+            this.navCtrl.setRoot(NotificationsLogPage);
+          }        
       })
     });
   }

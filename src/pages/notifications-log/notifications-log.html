@@ -8,19 +8,22 @@
 </ion-header>
 
 <ion-content padding>
+	<div class="loading" *ngIf="notifications.length == 0">
+      <ion-spinner></ion-spinner>
+    </div>
 	<ion-list>
-	    <div ion-item *ngFor="let notification of notifications" [ngClass]="{'seen': notification.seen}" text-wrap>
+	    <div ion-item *ngFor="let notification of notifications" text-wrap>
 	    	<div class="notification-head">
 	    		<div class="notification-title">
-	      			{{notification.title}}
+	      			{{notification?.title}}
 	      		</div>
 	      		<div class="timestamp">
 	      			<i class="far fa-clock"></i>
-	      			{{notification.timestamp}}
+	      			{{notification?.datetime | date:'short'}}
 	      		</div>
 	      	</div>
 	      	<div class="notification-content">
-	      		<p>{{notification.text}}</p>
+	      		<p>{{notification?.body}}</p>
 	      	</div>
 	    </div>
   	</ion-list>

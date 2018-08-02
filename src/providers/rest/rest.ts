@@ -7,6 +7,7 @@ export class RestProvider {
   tournamentPrefix = "/tournament";
   userPrefix = "/user";
   eventPrefix = "/event";
+  notificationPrefix = "/notification";
   loadTournamentsURL = "http://www.eudc-app.com/debate/tournament/get-all";
 
   constructor(public http: HttpClient) {
@@ -115,6 +116,32 @@ export class RestProvider {
         resolve(data);
       }, err => {
         return reject(err);
+      });
+    });
+  }
+
+  receiveNotification(userId, notificationId) {
+    let body = {
+      user_id : userId,
+      notification_id : notificationId,
+    };
+
+    return new Promise((resolve, reject) => {
+      this.http.post(this.apiUrl + this.notificationPrefix + "/receive", JSON.stringify(body))
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        return reject(err);
+      });
+    });
+  }
+
+  getNotificationLog() {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.apiUrl + this.notificationPrefix + "/full-log").subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
       });
     });
   }
