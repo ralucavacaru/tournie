@@ -62,24 +62,26 @@ export class MyApp {
   }
 
   initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+    if (this.platform.is('cordova')) {  
+      this.platform.ready().then(() => {
+        this.statusBar.styleDefault();
+        this.splashScreen.hide();
 
-      // Get a FCM token
-      this.fcm.getToken()
+        // Get a FCM token
+        this.fcm.getToken()
 
-      // Listen to incoming messages
-      this.fcm.listenToNotifications()
-      .subscribe(notification => {
-          if (notification.wasTapped) {
-            this.navCtrl.setRoot(NotificationsLogPage);
-          }
-          else {
-            this.navCtrl.setRoot(NotificationsLogPage);
-          }        
-      })
-    });
+        // Listen to incoming messages
+        this.fcm.listenToNotifications()
+        .subscribe(notification => {
+            if (notification.wasTapped) {
+              this.navCtrl.setRoot(NotificationsLogPage);
+            }
+            else {
+              this.navCtrl.setRoot(NotificationsLogPage);
+            }        
+        })
+      });
+    }
   }
 
   openPage(page) {
