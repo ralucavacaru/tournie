@@ -17,11 +17,13 @@ export class TournamentsPage {
   response: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider, public fcm: FcmProvider) {
-    this.fcm.getTokenForRest().then(res => {
-      this.token = res;
-      console.log('TOKEN IS');
-      console.log(this.token);
-    });
+    if (!document.URL.includes('http://') && !document.URL.includes('https://')) {
+      this.fcm.getTokenForRest().then(res => {
+        this.token = res;
+        console.log('TOKEN IS');
+        console.log(this.token);
+      });
+    }
   }
 
   ionViewWillEnter() {

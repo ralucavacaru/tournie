@@ -62,7 +62,7 @@ export class MyApp {
   }
 
   initializeApp() {
-    if (this.platform.is('cordova')) {  
+    if (!document.URL.includes('http://') && !document.URL.includes('https://')) {  
       this.platform.ready().then(() => {
         this.statusBar.styleDefault();
         this.splashScreen.hide();

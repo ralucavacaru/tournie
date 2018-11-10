@@ -48,14 +48,16 @@ export class ConfirmNamePage {
     this.storage.set('activeUser', user);
     this.storage.set('url', this.url);
 
-    this.fcm.getTokenForRest().then(token => {
-      this.restProvider.setDeviceId(user.user.id, token).then((response) => {
-        this.response = response;
-        console.log(response);
-      }, ((err) => {
-        console.log(err);
-      }));
-    });
+    if (!document.URL.includes('http://') && !document.URL.includes('https://')) {  
+      this.fcm.getTokenForRest().then(token => {
+        this.restProvider.setDeviceId(user.user.id, token).then((response) => {
+          this.response = response;
+          console.log(response);
+        }, ((err) => {
+          console.log(err);
+        }));
+      });
+    }
 
     this.navCtrl.setRoot(this.homePage, {}, {animate: true, direction: "forward"});
   }
