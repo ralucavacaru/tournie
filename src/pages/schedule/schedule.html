@@ -1,29 +1,32 @@
 <ion-header>
   <ion-navbar color="primary">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
     <ion-title>Schedule</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <div class="loading" *ngIf="schedule.length == 0">
+    <ion-spinner></ion-spinner>
+  </div>
 
-    <div class="loading" *ngIf="schedule.length == 0">
-      <ion-spinner></ion-spinner>
+  <ion-list class="schedule-wrapper" *ngFor="let day of expandedSchedule">
+    <div
+      class="day-header"
+      [ngClass]="{'nonExpandedDay': !day.expandedDay}"
+      (click)="expandDay(day)"
+    >
+      <h1><b>{{day.date | date}}</b></h1>
+      <ion-icon name="arrow-dropdown" *ngIf="!day.expandedDay"></ion-icon>
+      <ion-icon name="arrow-dropup" *ngIf="day.expandedDay"></ion-icon>
     </div>
-
-    <ion-list class="schedule-wrapper" *ngFor="let day of expandedSchedule">
-      <div class="day-header" 
-            [ngClass]="{'nonExpandedDay': !day.expandedDay}"  (click)="expandDay(day)">
-        <h1><b>{{day.date | date}}</b></h1>
-        <ion-icon name="arrow-dropdown" *ngIf="!day.expandedDay"></ion-icon>
-        <ion-icon name="arrow-dropup" *ngIf="day.expandedDay"></ion-icon>
-      </div>
-      <div class="day-wrapper" *ngIf="day.expandedDay">
-      <button detail-none (click)="expandItem(item)" ion-item 
-              *ngFor="let item of day.events" 
-              [ngClass]="{'registration': item.detail.event.type==1,
+    <div class="day-wrapper" *ngIf="day.expandedDay">
+      <button
+        detail-none
+        (click)="expandItem(item)"
+        ion-item
+        *ngFor="let item of day.events"
+        [ngClass]="{'registration': item.detail.event.type==1,
                           'round': item.detail.event.type==2,
                           'social': item.detail.event.type==3,
                           'workshop': item.detail.event.type==4,
@@ -31,54 +34,57 @@
                           'transport': item.detail.event.type==6,
                           'briefing': item.detail.event.type==7,
                           'misc': item.detail.event.type==8}"
-              text-wrap>
+        text-wrap
+      >
         <div class="item-head">
           <h2>{{item.detail.event.name}}</h2>
           <p class="event-subtitle">
-            <i class="fas fa-clock"></i> {{item.detail.event.date_start | date:'shortTime'}} - {{item.detail.event.date_end | date:'shortTime'}} &emsp; 
-            <i class="fas fa-map-marker-alt"></i> {{item.detail?.room.name}} {{item.detail.venue.name}}
+            <i class="fas fa-clock"></i> {{item.detail.event.date_start |
+            date:'shortTime'}} - {{item.detail.event.date_end |
+            date:'shortTime'}} &emsp;
+            <i class="fas fa-map-marker-alt"></i> {{item.detail?.room.name}}
+            {{item.detail.venue.name}}
           </p>
         </div>
-        <event-detail [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
+        <event-detail
+          [expandHeight]="itemExpandHeight"
+          [expanded]="item.expanded"
+        >
+          <!-- DESCRIPTION -->
+          <div
+            *ngIf="item.detail.event?.description != null; else alt_description"
+          >
+            <div
+              *ngIf="item.detail.event?.description.length > 0; else alt_description"
+            >
+              <b>{{item.detail.event?.description}}</b> <br />
+            </div>
+          </div>
+          <ng-template #alt_description>
+            No description has been provided for this event <br />
+          </ng-template>
 
-            <!-- DESCRIPTION -->
-            <div *ngIf="item.detail.event?.description != null; else alt_description">
-                <div *ngIf="item.detail.event?.description.length > 0; else alt_description">
-                  <b>{{item.detail.event?.description}}</b>
-                <br>
+          <!-- ONLY APPLIES TO ROUNDS -->
+          <div *ngIf="item.detail.event.type==2">
+            <!-- INFO SLIDE -->
+            <br />
+            <div *ngIf="item.detail?.round?.infoslide != null">
+              <div *ngIf="item.detail?.round?.infoslide.length > 0">
+                <b>Info Slide: </b>{{item.detail?.round?.infoslide}} <br />
               </div>
             </div>
-            <ng-template #alt_description>
-              No description has been provided for this event
-              <br>
+
+            <!-- MOTION -->
+            <b>Motion: </b>
+            <div *ngIf="item.detail?.round?.motion != null; else alt_motion">
+              {{item.detail?.round?.motion}} <br />
+            </div>
+            <ng-template #alt_motion>
+              The motion has not been released yet. <br />
             </ng-template>
-
-            <!-- ONLY APPLIES TO ROUNDS -->
-            <div *ngIf="item.detail.event.type==2">
-              <!-- INFO SLIDE -->
-              <br>
-              <div *ngIf="item.detail?.round?.infoslide != null">
-                <div *ngIf="item.detail?.round?.infoslide.length > 0">
-                  <b>Info Slide: </b>{{item.detail?.round?.infoslide}}
-                  <br>
-                </div>
-              </div>
-
-              <!-- MOTION -->
-              <b>Motion: </b>
-              <div *ngIf="item.detail?.round?.motion != null; else alt_motion">
-                {{item.detail?.round?.motion}}
-                <br>
-              </div>
-              <ng-template #alt_motion>
-                The motion has not been released yet.
-                <br>
-              </ng-template>
-            </div>
-            
+          </div>
         </event-detail>
       </button>
-      </div>
-    </ion-list>
-
+    </div>
+  </ion-list>
 </ion-content>

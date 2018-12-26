@@ -1,21 +1,22 @@
 page-schedule {
-	h1 {
-		font-family: 'Roboto Condensed', sans-serif;
-		font-weight: 400;
-		padding: 10px 10px 0;
-		margin-top: 10px;
-	}
-	
-	.day-header {
-		h1, ion-icon {
-			display: inline-block;
-		}
+  h1 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+    padding: 10px 10px 0;
+    margin-top: 10px;
+  }
 
-		ion-icon {
-			font-size: 2em !important; 
-			float: right;
-    		padding-right: 20px;
-    		padding-top: 5px;
-		}
-	}
+  .day-header {
+    h1,
+    ion-icon {
+      display: inline-block;
+    }
+
+    ion-icon {
+      font-size: 2em !important;
+      float: right;
+      padding-right: 20px;
+      padding-top: 5px;
+    }
+  }
 }

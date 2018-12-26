@@ -1,16 +1,14 @@
 <ion-header>
   <ion-navbar color="primary">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
     <ion-title>Profile</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <div class="profile-wrapper">
-  	<h1>{{user.user?.name}}</h1>
-  	<div class="profile-item">
+    <h1>{{user.user?.name}}</h1>
+    <div class="profile-item">
       <!-- <span class="profile-label">TabbyCat Feedback URL:</span>
       <span class="profile-value"><a href="{{url}}">{{url}}</a></span>
       <br> -->
@@ -24,16 +22,16 @@
     </div>
 
     <!-- Only valid for speakers -->
-  	<div class="profile-item" *ngIf="user.role == 0">
-      <span class="profile-label">Team: </span> 
+    <div class="profile-item" *ngIf="user.role == 0">
+      <span class="profile-label">Team: </span>
       <span class="profile-value">{{user?.team_name}}</span>
     </div>
 
     <div class="profile-item" *ngIf="user.role < 2">
-      <span class="profile-label">Institution: </span> 
+      <span class="profile-label">Institution: </span>
       <span class="profile-value">{{user?.institution?.name}}</span>
     </div>
 
-  	<button class="log-out" (click)="logOut()">Log Out</button>
+    <button class="log-out" (click)="logOut()">Log Out</button>
   </div>
 </ion-content>

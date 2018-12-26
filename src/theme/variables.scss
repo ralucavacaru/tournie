@@ -3,17 +3,14 @@
 
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
-$font-path: "../assets/fonts";
-
+$font-path: '../assets/fonts';
 
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
 
-
-@import "ionic.globals";
-
+@import 'ionic.globals';
 
 // Shared Variables
 // --------------------------------------------------
@@ -22,12 +19,11 @@ $app-direction: ltr;
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
-$font-family-base: "Lato";
-$font-family-md-base: "Lato";
-$font-family-ios-base: "Lato";
-$font-family-wp-base: "Lato";
+$font-family-base: 'Lato';
+$font-family-md-base: 'Lato';
+$font-family-ios-base: 'Lato';
+$font-family-wp-base: 'Lato';
 $menu-width: 250px;
-
 
 // Named Color Variables
 // --------------------------------------------------
@@ -38,47 +34,36 @@ $menu-width: 250px;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    	#4d79a6,
-  secondary:  	#32db64,
-  danger:     	#C14953,
-  light:      	#f4f4f4,
-  dark:       	#222,
-  registration:	#843252,
-  round:		#129490,
-  social:		#4E3A70,
-  workshop:		#D57A66,
-  meal:			#90A583,
-  misc:			#505050,
-  briefing:		#53B3CB,
-  transport:	#F9C22E,
-  primaryTransparent:  rgba(77, 121, 166, 0.5),
+  primary: #4d79a6,
+  secondary: #32db64,
+  danger: #c14953,
+  light: #f4f4f4,
+  dark: #222,
+  registration: #843252,
+  round: #129490,
+  social: #4e3a70,
+  workshop: #d57a66,
+  meal: #90a583,
+  misc: #505050,
+  briefing: #53b3cb,
+  transport: #f9c22e,
+  primaryTransparent: rgba(77, 121, 166, 0.5)
 );
 $item-wp-paragraph-text-color: black;
 $item-ios-paragraph-text-color: black;
 $item-md-paragraph-text-color: black;
 
-
-
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
-
-
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-
-
-
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
-
-
-
 
 // App Theme
 // --------------------------------------------------
@@ -87,29 +72,27 @@ $item-md-paragraph-text-color: black;
 // so that the above variables are used and Ionic's
 // default are overridden.
 
-@import "ionic.theme.default";
-
+@import 'ionic.theme.default';
 
 // Ionicons
 // --------------------------------------------------
 // The premium icon font for Ionic. For more info, please see:
 // http://ionicframework.com/docs/ionicons/
 
-@import "ionic.ionicons";
-
+@import 'ionic.ionicons';
 
 // Fonts
 // --------------------------------------------------
 
-@import "roboto";
-@import "noto-sans";
+@import 'roboto';
+@import 'noto-sans';
 @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Roboto+Condensed:400,700&subset=latin-ext');
 
 // @font-face {
 //   font-family: 'Roboto Condensed';
 //   font-style: normal;
 //   font-weight: 400;
-//   src: 
+//   src:
 //     local('RobotoCondensed-Regular'),
 //     url('../assets/fonts/roboto_condensed/RobotoCondensed-Regular.woff2') format('woff2'),
 //     url('../assets/fonts/roboto_condensed/RobotoCondensed-Regular.ttf') format('truetype');
@@ -118,7 +101,7 @@ $item-md-paragraph-text-color: black;
 //   font-family: 'Roboto Condensed';
 //   font-style: bold;
 //   font-weight: 700;
-//   src: 
+//   src:
 //     local('RobotoCondensed-Bold'),
 //     url('../assets/fonts/roboto_condensed/RobotoCondensed-Bold.woff2') format('woff2'),
 //     url('../assets/fonts/roboto_condensed/RobotoCondensed-Bold.ttf') format('truetype');
@@ -127,7 +110,7 @@ $item-md-paragraph-text-color: black;
 //   font-family: 'Lato';
 //   font-style: normal;
 //   font-weight: 400;
-//   src: 
+//   src:
 //     local('Lato-Regular'),
 //     url('../assets/fonts/lato/Lato-Regular.woff2') format('woff2'),
 //     url('../assets/fonts/lato/Lato-Regular.ttf') format('truetype');
@@ -136,9 +119,8 @@ $item-md-paragraph-text-color: black;
 //   font-family: 'Lato';
 //   font-style: bold;
 //   font-weight: 700;
-//   src: 
+//   src:
 //     local('Lato-Bold'),
 //     url('../assets/fonts/lato/Lato-Bold.woff2') format('woff2'),
 //     url('../assets/fonts/lato/Lato-Bold.ttf') format('truetype');
 // }
-

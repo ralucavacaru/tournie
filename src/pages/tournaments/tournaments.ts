@@ -8,15 +8,19 @@ import { FcmProvider } from '../../providers/fcm/fcm';
 @IonicPage()
 @Component({
   selector: 'page-tournaments',
-  templateUrl: 'tournaments.html',
+  templateUrl: 'tournaments.html'
 })
 export class TournamentsPage {
-
   tournaments: any = [];
   token: any;
   response: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider, public fcm: FcmProvider) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public restProvider: RestProvider,
+    public fcm: FcmProvider
+  ) {
     this.fcm.getTokenForRest().then(res => {
       this.token = res;
       console.log('TOKEN IS');
@@ -25,12 +29,10 @@ export class TournamentsPage {
   }
 
   ionViewWillEnter() {
-    this.restProvider.getAllTournaments().then(
-      data => {
-        this.tournaments = data;
-        console.log(data);
-      }
-    );
+    this.restProvider.getAllTournaments().then(data => {
+      this.tournaments = data;
+      console.log(data);
+    });
   }
 
   ionViewDidLoad() {
@@ -40,9 +42,7 @@ export class TournamentsPage {
 
   onClickTournament(tournament) {
     this.navCtrl.push(TournamentDetailPage, {
-      tournament: tournament,
+      tournament: tournament
     });
   }
-
 }
-

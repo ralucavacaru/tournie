@@ -27,38 +27,39 @@ export class MyApp {
   activeTournament: any;
   activeUser: any;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string; component: any }>;
 
   @ViewChild('content') navCtrl: NavController;
 
-  constructor(public platform: Platform, 
-              public statusBar: StatusBar, 
-              public splashScreen: SplashScreen, 
-              private storage: Storage, 
-              public fcm: FcmProvider, 
-              public toastCtrl: ToastController,
-              public restProvider: RestProvider) {
+  constructor(
+    public platform: Platform,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen,
+    private storage: Storage,
+    public fcm: FcmProvider,
+    public toastCtrl: ToastController,
+    public restProvider: RestProvider
+  ) {
     this.initializeApp();
 
     // used for sidebar navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Notifications Log', component: NotificationsLogPage},
+      { title: 'Notifications Log', component: NotificationsLogPage },
       { title: 'Schedule', component: SchedulePage },
-      { title: 'Profile', component: ProfilePage },
+      { title: 'Profile', component: ProfilePage }
     ];
 
-    this.storage.get('activeTournament').then((tournament) => {
+    this.storage.get('activeTournament').then(tournament => {
       this.activeTournament = tournament;
-      this.storage.get('activeUser').then((user) => {
+      this.storage.get('activeUser').then(user => {
         this.activeUser = user;
 
         if (this.activeTournament != null && this.activeUser != null) {
           this.rootPage = HomePage;
         }
-      })
-    })
-
+      });
+    });
   }
 
   initializeApp() {
@@ -67,18 +68,16 @@ export class MyApp {
       this.splashScreen.hide();
 
       // Get a FCM token
-      this.fcm.getToken()
+      this.fcm.getToken();
 
       // Listen to incoming messages
-      this.fcm.listenToNotifications()
-      .subscribe(notification => {
-          if (notification.wasTapped) {
-            this.navCtrl.setRoot(NotificationsLogPage);
-          }
-          else {
-            this.navCtrl.setRoot(NotificationsLogPage);
-          }        
-      })
+      this.fcm.listenToNotifications().subscribe(notification => {
+        if (notification.wasTapped) {
+          this.navCtrl.setRoot(NotificationsLogPage);
+        } else {
+          this.navCtrl.setRoot(NotificationsLogPage);
+        }
+      });
     });
   }
 

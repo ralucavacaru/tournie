@@ -1,35 +1,34 @@
 page-notifications-log {
-	.notification-head {
-		font-family: 'Roboto Condensed', sans-serif;
-		font-size: 20px !important;
-		font-weight: bold;
-		width: 100%;
-		background-color: map-get($colors, primary);
-		color: white;
-		padding: 5px 10px;
-		display: flex;
-		flex-basis: 100px;
-		justify-content: space-between;
-	}
-	.notification-content p {
-		font-size: 16px !important;
-		padding: 5px;
-	}
-	.notification-title {
-
-	}
-	.timestamp {
-		font-size: 14px;
-		line-height: 30px;
-		text-align: right;
-		font-weight: 300;
-	}
-	.seen {
-		.notification-head {
-			background-color: #757171;
-		}
-		.notification-content p {
-			color: #757171;
-		}
-	}
+  .notification-head {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 20px !important;
+    font-weight: bold;
+    width: 100%;
+    background-color: map-get($colors, primary);
+    color: white;
+    padding: 5px 10px;
+    display: flex;
+    flex-basis: 100px;
+    justify-content: space-between;
+  }
+  .notification-content p {
+    font-size: 16px !important;
+    padding: 5px;
+  }
+  .notification-title {
+  }
+  .timestamp {
+    font-size: 14px;
+    line-height: 30px;
+    text-align: right;
+    font-weight: 300;
+  }
+  .seen {
+    .notification-head {
+      background-color: #757171;
+    }
+    .notification-content p {
+      color: #757171;
+    }
+  }
 }

@@ -1,38 +1,30 @@
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>{{tournament.name}}</ion-title>
-  </ion-navbar>
-
+  <ion-navbar> <ion-title>{{tournament.name}}</ion-title> </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
+  <div class="loading" *ngIf="users == null"><ion-spinner></ion-spinner></div>
 
-	<div class="loading" *ngIf="users == null">
-	    <ion-spinner></ion-spinner>
-	  </div>
+  <div class="confirm-name" *ngIf="users?.length > 0">
+    <h2>Confirm your name</h2>
+    <p>Search for your name below, and tap it to confirm.</p>
 
-	<div class="confirm-name" *ngIf="users?.length > 0">
-		<h2>Confirm your name</h2>
-		<p>Search for your name below, and tap it to confirm.</p>
+    <ion-searchbar [(ngModel)]="terms"></ion-searchbar>
 
-		<ion-searchbar [(ngModel)]="terms"></ion-searchbar>
+    <ion-list>
+      <ion-item
+        *ngFor="let user of users | search : terms"
+        (click)="logIn(user)"
+        text-wrap
+      >
+        <div class="name">{{user.user.name}}</div>
+      </ion-item>
+    </ion-list>
+  </div>
 
-		<ion-list>
-	      <ion-item 
-	      	*ngFor="let user of users | search : terms" 
-	      	(click)="logIn(user)"
-	      	text-wrap>
-	      	<div class="name">
-	      		{{user.user.name}}
-	      	</div>
-	      </ion-item>
-	    </ion-list>
-	</div>
-
-	<div class="confirm-name" *ngIf="users?.length == 0">
-		<p>The URL you entered didn't return any users. Please go back and try again.</p>
-	</div>
-
+  <div class="confirm-name" *ngIf="users?.length == 0">
+    <p>
+      The URL you entered didn't return any users. Please go back and try again.
+    </p>
+  </div>
 </ion-content>

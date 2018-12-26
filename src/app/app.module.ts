@@ -9,7 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { NotificationsLogPage } from '../pages/notifications-log/notifications-log';
 import { SchedulePage } from '../pages/schedule/schedule';
 import { ProfilePage } from '../pages/profile/profile';
-import { TournamentsPage} from '../pages/tournaments/tournaments'
+import { TournamentsPage } from '../pages/tournaments/tournaments';
 import { EventDetailComponent } from '../components/event-detail/event-detail';
 import { TournamentDetailPage } from '../pages/tournament-detail/tournament-detail';
 import { ConfirmNamePage } from '../pages/confirm-name/confirm-name';
@@ -26,14 +26,13 @@ import { FcmProvider } from '../providers/fcm/fcm';
 import { SearchPipe } from '../pipes/search/search';
 
 const firebase = {
-  apiKey: "AIzaSyAXiAk7go-tHQV03YGOL8D-tu39A5KsnXs",
-  authDomain: "tournie-ff873.firebaseapp.com",
-  databaseURL: "https://tournie-ff873.firebaseio.com",
-  projectId: "tournie-ff873",
-  storageBucket: "tournie-ff873.appspot.com",
-  messagingSenderId: "737864435118"
-}
-
+  apiKey: 'AIzaSyAXiAk7go-tHQV03YGOL8D-tu39A5KsnXs',
+  authDomain: 'tournie-ff873.firebaseapp.com',
+  databaseURL: 'https://tournie-ff873.firebaseio.com',
+  projectId: 'tournie-ff873',
+  storageBucket: 'tournie-ff873.appspot.com',
+  messagingSenderId: '737864435118'
+};
 
 @NgModule({
   declarations: [
@@ -46,7 +45,7 @@ const firebase = {
     EventDetailComponent,
     TournamentDetailPage,
     ConfirmNamePage,
-    SearchPipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -56,8 +55,8 @@ const firebase = {
       mode: 'md'
     }),
     IonicStorageModule.forRoot(),
-    AngularFireModule.initializeApp(firebase), 
-    AngularFirestoreModule,
+    AngularFireModule.initializeApp(firebase),
+    AngularFirestoreModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -68,15 +67,15 @@ const firebase = {
     ProfilePage,
     TournamentsPage,
     TournamentDetailPage,
-    ConfirmNamePage,
+    ConfirmNamePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     RestProvider,
     Firebase,
-    FcmProvider,
+    FcmProvider
   ]
 })
 export class AppModule {}

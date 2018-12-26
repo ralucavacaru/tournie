@@ -6,37 +6,39 @@ import { HomePage } from '../home/home';
 import { FcmProvider } from '../../providers/fcm/fcm';
 import { SearchPipe } from '../../pipes/search/search';
 
-
 @IonicPage()
 @Component({
   selector: 'page-confirm-name',
-  templateUrl: 'confirm-name.html',
+  templateUrl: 'confirm-name.html'
 })
 export class ConfirmNamePage {
-  
   url: any;
   tournament: any;
   users: any = null;
   homePage = HomePage;
   response: any;
 
-  constructor(public navCtrl: NavController, 
-			  public navParams: NavParams,
-			  private storage: Storage, 
-        public restProvider: RestProvider,
-        public fcm: FcmProvider) {
-  	this.url = this.navParams.get('url');
-  	this.tournament = this.navParams.get('tournament');
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private storage: Storage,
+    public restProvider: RestProvider,
+    public fcm: FcmProvider
+  ) {
+    this.url = this.navParams.get('url');
+    this.tournament = this.navParams.get('tournament');
 
-  	this.restProvider.getUsersByUrl(this.url, this.tournament.id).then(res => {
-      this.users = res;
-      console.log(this.users);
-    }, ((err) => {
-      if (err.status == '404') {
-        this.users = [];
+    this.restProvider.getUsersByUrl(this.url, this.tournament.id).then(
+      res => {
+        this.users = res;
+        console.log(this.users);
+      },
+      err => {
+        if (err.status == '404') {
+          this.users = [];
+        }
       }
-    }));
-
+    );
   }
 
   ionViewDidLoad() {
@@ -49,15 +51,21 @@ export class ConfirmNamePage {
     this.storage.set('url', this.url);
 
     this.fcm.getTokenForRest().then(token => {
-      this.restProvider.setDeviceId(user.user.id, token).then((response) => {
-        this.response = response;
-        console.log(response);
-      }, ((err) => {
-        console.log(err);
-      }));
+      this.restProvider.setDeviceId(user.user.id, token).then(
+        response => {
+          this.response = response;
+          console.log(response);
+        },
+        err => {
+          console.log(err);
+        }
+      );
     });
 
-    this.navCtrl.setRoot(this.homePage, {}, {animate: true, direction: "forward"});
+    this.navCtrl.setRoot(
+      this.homePage,
+      {},
+      { animate: true, direction: 'forward' }
+    );
   }
-
 }
